@@ -1,14 +1,15 @@
 import mysql.connector
+from src import app
 
-def criar_conexao(host: str, database: str, user: str, password: str):
+def get_db():
     return mysql.connector.connect(
-        host="localhost",
-        database=database,
-        user=user,
-        password=password
+        host= app.config['MYSQL_HOST'],
+        database= app.config['MYSQL_DATABASE'],
+        user= app.config['MYSQL_USER'],
+        password= app.config['MYSQL_PASSWORD']
     )
 
-def fechar_conexao(con):
+def close_db(con):
     return con.close()
 
 
