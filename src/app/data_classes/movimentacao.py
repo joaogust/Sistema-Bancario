@@ -7,6 +7,9 @@ class Movimentacao:
     id_conta: int
     data_hora: datetime
     valor: float
+    tipo: int
+    id_pix: int
+    id_ted: int
 
 @dataclass
 class Pix(Movimentacao):
