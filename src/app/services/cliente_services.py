@@ -11,13 +11,12 @@ def create_cliente(id: int, rg: int, cpf: int, nome: str, data_nasc: date, email
     database.commit()
     close_db(database)
 
-def read_cliente(id: int):
+def get_cliente(id: int):
     database = get_db()
     cursor = database.cursor()
     query = "SELECT * FROM Cliente WHERE id = ?"
-    resultado = cursor.execute(query, (id,))
+    resultado = cursor.execute(query, id)
     if resultado is None:
         return None
     else:
-        cliente = Cliente(**resultado)
-        return cliente
+        return Cliente(**resultado)
