@@ -2,7 +2,7 @@ from src.app.data_classes.movimentacao import Movimentacao
 from src.app.db import get_db, close_db
 from datetime import datetime
 
-def create_movimentacao(id: int, id_conta: int, data_hora: datetime, valor: float, tipo: int, id_pix: int, id_ted: int):
+def create_movimentacao(id: int, id_conta: int, data_hora: datetime, valor: float, tipo: str, id_pix: int, id_ted: int):
     database = get_db()
     cursor = database.cursor()
     query = "INSERT INTO Movimentacao (id, id_conta, data_hora, valor, tipo, id_pix, id_ted) VALUES (?, ?, ?, ?, ?, ?, ?)"

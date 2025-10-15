@@ -7,6 +7,6 @@ class Movimentacao:
     id_conta: int
     data_hora: datetime
     valor: float
-    tipo: int
+    tipo: str
     id_pix: int
     id_ted: int

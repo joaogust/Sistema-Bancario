@@ -1,0 +1,5 @@
+Flask # Framework necessário para a aplicação web
+psycopg2-binary # Conector para o banco de dados
+python-dotenv # Gerenciador de segredos
+Flask-colors # Comunicação do front-end com o back-end
+gunicorn # garante que a aplicação consiga atender a vários usuários ao mesmo tempo de forma estável e segura
