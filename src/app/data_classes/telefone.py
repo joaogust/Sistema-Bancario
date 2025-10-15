@@ -3,6 +3,5 @@ from dataclasses import dataclass\
 @dataclass
 class Telefone:
     id: int
-    numero: int
+    numero: str
     tipo: str
-    id_cliente: int

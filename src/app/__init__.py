@@ -2,6 +2,8 @@ from flask import Flask # importa a classe principal da biblioteca flask
 from config import Config # vai até o arquivo config.py e importa a classe Config - É como pegar o manual de especificações
 from . import db # o . significa que é o mesmo pacote. Da as funções get_db, close_db e init_app - É como chamar a equipe de instalação do motor
 
+from .routes import home_routes
+
 def create_app():
     """
     Essa é a Application Factory. Ela cria, configura e monta a aplicação Flask.
@@ -14,9 +16,8 @@ def create_app():
 
     db.init_app(app) # garante que a limpeza do banco de dados aconteça automaticamente
 
-    @app.route('/teste') # teste de funcionamento
-    def rota_de_teste():
-        return "<h1>O Flask está funcionando!</h1>"
+    app.register_blueprint(home_routes.bp)
+
     return app
 
 """

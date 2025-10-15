@@ -5,8 +5,8 @@ from decimal import Decimal
 @dataclass
 class Cliente:
     id: int
-    rg: int
-    cpf: int
+    cpf: str
+    rg: str
     nome: str
     data_nasc: date
     email: str
