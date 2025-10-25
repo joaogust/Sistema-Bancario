@@ -1,105 +1,65 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Loja Online</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-    <header>
-        <div class="container">
-            <h1 class="logo">MinhaLoja</h1>
+<html lang="pt-BR ">
+    <head>
+        <title>IFSP</title>
+        <meta charset="UTF-8" class="h-100">
+        <link rel="stylesheet" href="style2.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="icon" href="icon.png" type="image/x-icon">
+    </head>
+
+    <body>
+
+        <main>
+
+            <div class="colunas">
+
+                <section class="coluna imagem">
+                    <img src="foto3.jpg" alt="foto3">
+                </section>
+
+                <section class="coluna texto">
+
+                    <div class="form-card">
+
+                        <form action="enviar.py" method="get">
+
+                            <h1 class="h2 mb-3 fw-bold">Portal do Cliente</h1>
+                            <h5 class="h5 mb-3 fw-normal">Entre com suas credenciais</h5>
+    
+                            <div class="form-floating" >
+                                <input type="text" name="cpf" class="form-control" id="floatingInput" placeholder="12345678900">
+                                <label for="floatingInput">CPF *</label>
+                            </div>
+    
+                            <div class="form-floating" >
+                                <input type="password" name="password" class="form-control" id="floatingInput" placeholder="senha">
+                                <label for="floatingInput">SENHA *</label>
+                            </div>
+
+                            <a href="#" class="form-links d-block mb-3">Esqueci a senha</a>
+
+                            <div>
+                                <button class="btn button-laranja w-100 py-2">Acessar</button>
+                            </div>
+
+                            <div>
+                                <button class="btn button-laranja-branco w-100 py-2">Voltar para a página inicial</button>
+                            </div>
             
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-utils">
-                <form class="search-bar">
-                    <input type="search" placeholder="Buscar produtos...">
-                    <button type="submit">Buscar</button>
-                </form>
-                <a href="carrinho.html" class="cart-link">
-                    🛒 Carrinho (0)
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        
-        <section class="hero">
-            <div class="container">
-                <h2>Promoção de Outono</h2>
-                <p>Até 50% de desconto em produtos selecionados. Aproveite!</p>
-                <a href="produtos.html" class="btn-primary">Ver Ofertas</a>
-            </div>
-        </section>
-
-        <section class="featured-products">
-            <div class="container">
-                <h2>Produtos em Destaque</h2>
+                            <div>
+                                 <button class="btn btn-primary w-100 py-2 mt-2">Entrar</button>
+                            </div>
+                        </form>
+                    </div>
                 
-                <div class="product-grid">
-                    
-                    <article class="product-card">
-                        <img src="https://via.placeholder.com/300x300.png?text=Imagem+Produto+1" alt="Nome do Produto 1">
-                        <h3>Produto Exemplo 1</h3>
-                        <p class="price">R$ 99,90</p>
-                        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-                    </article>
+                </section>
 
-                    <article class="product-card">
-                        <img src="https://via.placeholder.com/300x300.png?text=Imagem+Produto+2" alt="Nome do Produto 2">
-                        <h3>Produto Exemplo 2</h3>
-                        <p class="price">R$ 149,90</p>
-                        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-                    </article>
-
-                    <article class="product-card">
-                        <img src="https://via.placeholder.com/300x300.png?text=Imagem+Produto+3" alt="Nome do Produto 3">
-                        <h3>Produto Exemplo 3</h3>
-                        <p class="price">R$ 79,90</p>
-                        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-                    </article>
-
-                    <article class="product-card">
-                        <img src="https://via.placeholder.com/300x300.png?text=Imagem+Produto+4" alt="Nome do Produto 4">
-                        <h3>Produto Exemplo 4</h3>
-                        <p class="price">R$ 199,90</p>
-                        <button class="btn-add-cart">Adicionar ao Carrinho</button>
-                    </article>
-                    
-                </div>
             </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <ul>
-                    <li><a href="#">Termos de Serviço</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Ajuda</a></li>
-                </ul>
-            </div>
-            <div class="social-media">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </div>
-            <p>&copy; 2025 MinhaLoja. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-</body>
+        </main>
+        <footer>
+            <p>© 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de São Paulo</p>
+        </footer>
+    </body>
 </html>
