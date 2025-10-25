@@ -43,7 +43,7 @@ div {
 }
 
 #links {
-    margin-left: 5rem;
+    margin-left: 3rem;
 }
 
 .cabecalho {
@@ -79,14 +79,15 @@ div {
 }
 
 footer {
-    margin-top: 0px;
     background-color: #0D2A4B;
     color: white;
+    margin-top: 0px;
     text-align: center;
     padding: 2rem;
 }
 
 footer p {
+    margin: 0;
     background-color: #0D2A4B;
 }
 
@@ -112,12 +113,11 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    overflow: hidden;
 }
 
 .coluna.imagem {
     padding: 0rem;
-    background-color: #18A4E0;
 }
 
 .coluna.imagem img {
@@ -128,11 +128,65 @@ main {
 
 .coluna.texto {
     background-image: linear-gradient(to left, #18A4E0, #1384b5);
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.form-card {
+    background-color: #F4F7F9;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-card2 {
+    background-color: #F4F7F9;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-links {
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn {
+    border-radius: 10rem;
+}
+
+.btn.button-laranja-branco {
+    background-color: #F4F7F9;
+    border-color: #FDB913;
+    color: #333333;
+    font-weight: 500;
+    padding: 0.6rem;
+}
+
+.btn.button-laranja-branco:hover {
+    background-color: #FDB913;
+    border-color: #FDB913;
     color: white;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: 1rem;
-    padding-bottom: 3rem;
+}
+
+.btn.button-laranja {
+    background-color: #FDB913;
+    border-color: #FDB913;
+    color: white;
+    font-weight: 500;
+    padding: 0.6rem;
+}
+
+.btn.button-laranja:hover {
+    background-color: #f3b006;
+    color: white;
 }
 
 .titulo {
@@ -165,28 +219,12 @@ main {
     color: #c79006;
 }
 
-/* input {
-    color: #333333;
-    background-color: white;
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.7rem;
-    margin-top: 0.1rem;
-    border: 2px solid #0D2A4B;
-    border-radius: 0.3rem;
-    box-sizing: border-box;
+#checkboxLabel {
+    font-size: 0.8rem;
 }
 
-#submit {
-    background-color: #FDB913;
-    color: #0D2A4B;
-    font-weight: bold;
-    cursor: pointer;
-    width: 50%;
-    margin-top: 1rem;
+#checkboxLink {
+    font-size: 0.8rem;
+    color: #18A4E0;
+    text-decoration: none;
 }
-
-label {
-    font-style: italic;
-    color: #F4F7F9;
-} */

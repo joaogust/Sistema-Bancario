@@ -4,33 +4,69 @@
     <head>
         <title>IFSP</title>
         <meta charset="UTF-8" class="h-100">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="icon" href="icon.png" type="image/x-icon">
     </head>
-    <body class="d-flex bg-body-tertiary">
-        <main class="w-100 m-auto">
+
+    <body>
+
+        <header>
+            <div class="container">
+                <a href="index.html">
+                    <img src="logo4.png" alt="logo" height="50rem" width="200rem">
+                </a>
+
+                <nav id="links">
+                    <a class="cabecalho" href="faq.html">FAQ</a>
+                    <a class="cabecalho" href="sobre-nos.html">Sobre nós</a>
+                    <a class="cabecalho" href="seguranca.html">Segurança</a>
+                    <a class="cabecalho" id="login" href="login.html">Acesse sua conta ›</a>
+                    <a class="cabecalho" id="abrir_conta" href="abrir-conta.html">Abra sua conta »</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+
             <div class="colunas">
+
                 <section class="coluna imagem">
                     <img src="foto3.jpg" alt="foto3">
                 </section>
 
-                <section class="coluna texto py-4  align-items-center " align-itens="center">
-                    <h1 class="hq mb-3 fw-bold">Portal do Cliente</h1>
-                    <h5 class="h5 mb-3 fw-italic">Entre com suas credenciais</h5>
-                    <form class="form-container" action="enviar.py" method="get">
-                        <div class="form-floating" >
-                            <input type="text" name="cpf" class="form-control" id="floatingInput" placeholder="12345678900">
-                            <label for="floatingInput">CPF *</label>
-                        </div>
-                        <div class="form-floating" >
-                            <input type="password" name="password" class="form-control" id="floatingInput" placeholder="senha">
-                            <label for="floatingInput">SENHA *</label>
-                        </div>
-                        <div>
-                             <button class="btn btn-primary w-100 py-2 mt-3">Entrar</button>
-                        </div>
-                    </form>
+                <section class="coluna texto">
+
+                    <div class="form-card">
+
+                        <form action="enviar.py" method="get">
+
+                            <h1 class="h2 mb-3 fw-bold">Portal do Cliente</h1>
+                            <h5 class="h5 mb-3 fw-normal">Entre com suas credenciais</h5>
+    
+                            <div class="form-floating" >
+                                <input type="text" name="cpf" class="form-control" id="floatingInput" placeholder="12345678900">
+                                <label for="floatingInput">CPF *</label>
+                            </div>
+    
+                            <div class="form-floating" >
+                                <input type="password" name="password" class="form-control" id="floatingInput" placeholder="senha">
+                                <label for="floatingInput">SENHA *</label>
+                            </div>
+
+                            <a href="#" class="form-links d-block mb-3 mt-3">Esqueci a senha</a>
+
+                            <div class="mb-3">
+                                <button class="btn button-laranja w-100 py-2">Acessar</button>
+                            </div>
+
+                            <div class="mb-3">
+                                <button  class="btn button-laranja-branco w-100 py-2">Criar Conta</button>
+                            </div>
+
+                        </form>
+                    </div>
                 
                 </section>
 

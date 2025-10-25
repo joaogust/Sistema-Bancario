@@ -3,11 +3,15 @@
 <html>
     <head>
         <title>IFSP</title>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" class="h-100">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="icon" href="icon.png" type="image/x-icon">
     </head>
-    <body>
+
+    <body class="d-flex ">
+        
         <header>
             <div class="container">
                 <a href="index.html">
@@ -15,7 +19,7 @@
                 </a>
 
                 <nav id="links">
-                    <a class="cabecalho" href="faq.html"></a>
+                    <a class="cabecalho" href="faq.html">FAQ</a>
                     <a class="cabecalho" href="sobre-nos.html">Sobre nós</a>
                     <a class="cabecalho" href="seguranca.html">Segurança</a>
                     <a class="cabecalho" id="login" href="login.html">Acesse sua conta ›</a>
@@ -23,79 +27,62 @@
                 </nav>
             </div>
         </header>
+
         <main>
+
             <div class="colunas">
+
                 <section class="coluna imagem">
                     <img src="foto2.jpg" alt="foto2">
                 </section>
                 
                 <section class="coluna texto">
-                    <h1 class="titulo">Abra a sua Conta</h1>
-                    <h2 class="subtitulo">Preencha os campos a seguir »</h2>
-                    <form action="enviar.py" method="get">
-                        <div>
-                            <label for="nome-completo"><b>Nome completo:</b></label>
-                            <input type="text" name="nome-completo" id="nome-completo" placeholder="Ex: Maria Aparecida das Neves">
-                        </div>
-                        <div>
-                            <label for="cpf"><b>CPF:</b></label>
-                            <input type="text" name="cpf" id="cpf" placeholder="Ex: 123.456.789-00">
-                        </div>
-                        <div>
-                            <label for="rg"><b>RG:</b></label>
-                            <input type="text" name="rg" id="rg" placeholder="Ex: 12.345.678-9">
-                        </div>
-                        <div>
-                            <label for="nascimento"><b>Data de Nascimento:</b></label>
-                            <input type="date" name="nascimento" id="nascimento">
-                        </div>
-                        <div>
-                            <label for="email"><b>E-mail:</b></label>
-                            <input type="email" name="email" id="email" placeholder="Ex: usuario@email.com">
-                        </div>
-                        <div>
-                            <label for="salario"><b>Salário:</b></label>
-                            <input type="number" name="salario" id="salario"
-                            placeholder="Ex: 1500.00" min="0" step="0.01">
-                        </div>
-                        <div>
-                            <label for="ocupação"><b>Situação ocupacional:</b></label>
-                            <input list="ocupações" name="ocupação" id="ocupação">
-                            <datalist id="ocupações">
-                                <option value="Estudante">
-                                <option value="Desempregado">
-                                <option value="Aposentado"><option value="Administrador(a)">
-                                <option value="Advogado(a)">
-                                <option value="Analista de Sistemas">
-                                <option value="Arquiteto(a)">
-                                <option value="Chef de Cozinha">
-                                <option value="Contador(a)">
-                                <option value="Dentista">
-                                <option value="Desenvolvedor(a) de Software">
-                                <option value="Designer Gráfico(a)">
-                                <option value="Eletricista">
-                                <option value="Empregado">
-                                <option value="Enfermeiro(a)">
-                                <option value="Engenheiro(a)">
-                                <option value="Fisioterapeuta">
-                                <option value="Fotógrafo(a)">
-                                <option value="Gerente de Projetos">
-                                <option value="Jornalista">
-                                <option value="Mecânico(a)">
-                                <option value="Médico(a)">
-                                <option value="Motorista">
-                                <option value="Músico(a)">
-                                <option value="Nutricionista">
-                                <option value="Policial">
-                                <option value="Professor(a)">
-                                <option value="Psicólogo(a)">
-                                <option value="Vendedor(a)">
-                                <option value_com="Veterinário(a)">
-                                <option value="Outro">
-                            </datalist>
-                            <input type="submit" name="submit" id="submit" value="Enviar">
-                        </div>
-                    </form>
+                    <h1 class="h1 mb-3 fw-bold text-white">Abra a sua Conta</h1>
+                    <h5 class="h5 mb-3 fw-normal text-white">Preencha os campos a seguir »</h5>
+                    
+                    <div class="form-card2 ">
+                        <!-- nome, telefone, e-mail, cpf, data de nascimento, termos de uso  -->
+                        
+                        <form action="enviar.py" method="get">
+                            
+    
+                            <div class="form-floating" >
+                                <input type="text" name="nome-completo" class="form-control" id="floatingInput" placeholder="Ex: Maria Aparecida">
+                                <label for="floatingInput">Digite seu nome completo</label>
+                            </div>
+                            
+                            <div class="form-floating" >
+                                <input type="number" name="telefone" class="form-control" id="floatingInput" placeholder="Ex: 11987654321">
+                                <label for="floatingInput">Digite seu telefone</label>
+                            </div>
+                            
+                            <div class="form-floating" >
+                                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Ex: usuario@email.com">
+                                <label for="floatingInput">Digite seu e-mail</label>
+                            </div>
+
+                            <div class="form-floating" >
+                                <input type="text" name="cpf" class="form-control" id="floatingInput" placeholder="Ex: 12345678900">
+                                <label for="floatingInput">Digite seu cpf</label>
+                            </div>
+                        
+                            <div class="form-floating" >
+                                <input type="date" name="nascimento" class="form-control" id="floatingInput">
+                                <label for="floatingInput">Digite sua data de nascimento</label>
+                            </div>  
+
+                            <div class="for-check text-start my-3">
+                                <input type="checkbox" class="form-check-input" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault" id="checkboxLabel">Estou de acordo com a <a id="checkboxLink" href="#">Política de Privacidade</a>.</label>
+                            </div>
+
+                            
+                            <div class="mb-3">
+                                <button class="btn button-laranja w-100 py-2">Continuar</button>
+                            </div>
+                        </form>
+
+                    </div>
                 </section>
             </div>
         </main>
