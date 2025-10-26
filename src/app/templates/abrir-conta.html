@@ -1,114 +1,220 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>IFSP</title>
-      <meta charset="UTF-8" class="h-100">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="/src/app/static/css/style.css">
-      <link rel="icon" href="icon.png" type="image/x-icon">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-   </head>
-   <body class="d-flex ">
-      <header>
-         <div class="container">
-            <a href="index.html">
-            <img src="/src/app/static/images/logo4.png" alt="logo" height="50rem" width="200rem">
-            </a>
-            <nav id="links">
-               <a class="cabecalho" href="faq.html">FAQ</a>
-               <a class="cabecalho" href="sobre-nos.html">Sobre nós</a>
-               <a class="cabecalho" href="seguranca.html">Segurança</a>
-               <a class="cabecalho" id="login" href="login.html">Acesse sua conta ›</a>
-               <a class="cabecalho" id="abrir_conta" href="abrir-conta.html">Abra sua conta »</a>
-            </nav>
-         </div>
-      </header>
-      <main>
-         <div class="colunas">
-            <section class="coluna imagem">
-               <img src="/src/app/static/images/foto2.jpg" alt="foto2">
-            </section>
-            <section class="coluna texto">
-               <h1 class="h1 mb-3 fw-bold text-white">Abra agora sua Conta Digital</h1>
-               <h5 class="h5 mb-3 fw-normal text-white">Informe os dados a seguir</h5>
-               <div class="form-card2 ">
-                  <!-- nome, telefone, e-mail, cpf, data de nascimento, termos de uso  -->
-                  <form action="enviar.py" method="get">
-                     <div class="form-floating" >
-                        <input type="text" name="nome-completo" class="form-control" id="floatingInput" placeholder="Ex: Maria Aparecida">
-                        <label for="floatingInput">Digite seu nome completo</label>
-                     </div>
-                     <div class="form-floating" >
-                        <input type="number" name="telefone" class="form-control" id="floatingInput" placeholder="Ex: 11987654321">
-                        <label for="floatingInput">Digite seu telefone</label>
-                     </div>
-                     <div class="form-floating" >
-                        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Ex: usuario@email.com">
-                        <label for="floatingInput">Digite seu e-mail</label>
-                     </div>
-                     <div class="form-floating" >
-                        <input type="text" name="cpf" class="form-control" id="floatingInput" placeholder="Ex: 12345678900">
-                        <label for="floatingInput">Digite seu CPF</label>
-                     </div>
-                     <div class="form-floating" >
-                        <input type="date" name="nascimento" class="form-control" id="floatingInput">
-                        <label for="floatingInput">Digite sua data de nascimento</label>
-                     </div>
-                     <div class="for-check text-start my-3">
-                        <input type="checkbox" class="form-check-input" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault" id="checkboxLabel">Estou de acordo com a <a id="checkboxLink" href="politica-de-uso.html">Política de Privacidade</a>.</label>
-                     </div>
-                     <div class="mb-3">
-                        <button class="btn button-laranja w-100 py-2">Continuar</button>
-                     </div>
-                  </form>
-               </div>
-            </section>
-         </div>
-      </main>
-      <footer>
-         <div class="container footer-container">
-            <div class="footer-column">
-               <h3 class="footer-logo-text">IFSP</h3>
-               <p class="footer-description">
-                  Instituição Financeira de São Paulo
-               </p>
-               <h4>Siga-nos</h4>
-               <div class="footer-social-links">
-                  <a href="#">LinkedIn</a>
-               </div>
-            </div>
-            <div class="footer-column">
-               <h4>Navegação</h4>
-               <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="faq.html">FAQ</a></li>
-                  <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                  <li><a href="seguranca.html">Segurança</a></li>
-               </ul>
-            </div>
-            <div class="footer-column">
-               <h4>Legal</h4>
-               <ul>
-                  <li><a href="termos-de-uso.html">Termos de Uso</a></li>
-                  <li><a href="politica-de-uso.html">Política de Privacidade</a></li>
-                  <li><a href="contato.html">Contato</a></li>
-               </ul>
-            </div>
-            <div class="footer-column">
-               <h4>Sua Conta</h4>
-               <ul>
-                  <li><a href="login.html" class="footer-btn-link">Acesse sua conta</a></li>
-                  <li><a href="abrir-conta.html" class="footer-btn-link">Abra sua conta</a></li>
-               </ul>
-            </div>
-         </div>
-         <div class="container">
-            <hr class="footer-divider">
-         </div>
-         <div class="container footer-bottom">
-            <p>© 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de São Paulo</p>
-         </div>
-      </footer>
-   </body>
+<html lang="pt-BR" class="h-100">
+	<head>
+		<title>IFSP - Abrir Conta</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/src/app/static/css/style.css" />
+		<link rel="icon" href="/images/icon.png" type="image/x-icon" />
+	</head>
+
+	<body class="d-flex flex-column h-100">
+		<header>
+			<div class="container">
+				<a href="index.html">
+					<img
+						src="/src/app/static/images/logo4.png"
+						alt="logo"
+						height="50rem"
+						width="200rem"
+					/>
+				</a>
+				<nav id="links">
+					<a class="cabecalho" href="faq.html">FAQ</a>
+					<a class="cabecalho" href="sobre-nos.html">Sobre nós</a>
+					<a class="cabecalho" href="seguranca.html">Segurança</a>
+					<a class="cabecalho" id="login" href="login.html"
+						>Acesse sua conta ›</a
+					>
+					<a class="cabecalho" id="abrir_conta" href="abrir-conta.html"
+						>Abra sua conta »</a
+					>
+				</nav>
+			</div>
+		</header>
+
+		<main class="flex-grow-1">
+			<div class="row g-0 flex-grow-1">
+				<div class="col-md-6 d-none d-md-block">
+					<img
+						src="/src/app/static/images/foto2.jpg"
+						alt="Mulher sorrindo usando notebook"
+						class="img-fluid w-100 h-100 object-fit-cover"
+					/>
+				</div>
+
+				<div
+					class="col-md-6 d-flex flex-column align-items-center justify-content-center coluna texto p-4 p-md-5"
+				>
+					<h1 class="h1 mb-3 fw-bold text-white text-center">
+						Abra agora sua Conta Digital
+					</h1>
+					<h5 class="h5 mb-3 fw-normal text-white text-center">
+						Informe os dados a seguir
+					</h5>
+
+					<div class="form-card2">
+						<form action="enviar.py" method="get">
+							<div class="form-floating mb-3">
+								<input
+									type="text"
+									name="nome-completo"
+									class="form-control"
+									id="floatingNome"
+									placeholder="Ex: Maria Aparecida"
+								/>
+								<label for="floatingNome">Digite seu nome completo</label>
+							</div>
+
+							<div class="form-floating mb-3">
+								<input
+									type="tel"
+									name="telefone"
+									class="form-control"
+									id="floatingTelefone"
+									placeholder="Ex: 11987654321"
+								/>
+								<label for="floatingTelefone">Digite seu telefone</label>
+							</div>
+
+							<div class="form-floating mb-3">
+								<input
+									type="email"
+									name="email"
+									class="form-control"
+									id="floatingEmail"
+									placeholder="Ex: usuario@email.com"
+								/>
+								<label for="floatingEmail">Digite seu e-mail</label>
+							</div>
+
+							<div class="form-floating mb-3">
+								<input
+									type="text"
+									name="cpf"
+									class="form-control"
+									id="floatingCpf"
+									placeholder="Ex: 12345678900"
+								/>
+								<label for="floatingCpf">Digite seu CPF</label>
+							</div>
+
+							<div class="form-floating mb-3">
+								<input
+									type="date"
+									name="nascimento"
+									class="form-control"
+									id="floatingNascimento"
+								/>
+								<label for="floatingNascimento"
+									>Digite sua data de nascimento</label
+								>
+							</div>
+
+							<div class="form-check text-start my-3">
+								<input
+									type="checkbox"
+									class="form-check-input"
+									id="flexCheckDefault"
+								/>
+								<label
+									class="form-check-label"
+									for="flexCheckDefault"
+									id="checkboxLabel"
+									>Estou de acordo com a
+									<a id="checkboxLink" href="politica-de-privacidade.html"
+										>Política de Privacidade</a
+									>.</label
+								>
+							</div>
+
+							<div class="mb-3">
+								<button class="btn button-laranja w-100 py-2">Continuar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer>
+			<div class="container py-5">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+					<div class="col">
+						<div class="footer-column">
+							<h3 class="footer-logo-text">IFSP</h3>
+							<p class="footer-description">
+								Instituição Financeira de São Paulo
+							</p>
+							<h4>Siga-nos</h4>
+							<div class="footer-social-links">
+								<a href="#">LinkedIn</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="footer-column">
+							<h4>Navegação</h4>
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="faq.html">FAQ</a></li>
+								<li><a href="sobre-nos.html">Sobre Nós</a></li>
+								<li><a href="seguranca.html">Segurança</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="footer-column">
+							<h4>Legal</h4>
+							<ul>
+								<li><a href="termos-de-uso.html">Termos de Uso</a></li>
+								<li>
+									<a href="politica-de-privacidade.html"
+										>Política de Privacidade</a
+									>
+								</li>
+								<li><a href="contato.html">Contato</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="footer-column">
+							<h4>Sua Conta</h4>
+							<ul>
+								<li>
+									<a href="login.html" class="footer-btn-link"
+										>Acesse sua conta</a
+									>
+								</li>
+								<li>
+									<a href="abrir-conta.html" class="footer-btn-link"
+										>Abra sua conta</a
+									>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<hr class="footer-divider" />
+			</div>
+			<div class="container footer-bottom">
+				<p>
+					© 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de
+					São Paulo
+				</p>
+			</div>
+		</footer>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
 </html>
