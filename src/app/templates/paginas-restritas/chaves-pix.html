@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-100">
+    <head>
+        <title>IFSP - Chaves PIX</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <link rel="stylesheet" href="/src/app/static/css/style.css" />
+        
+        <link rel="stylesheet" href="/src/app/static/css/dashboard.css" />
+
+        <link rel="icon" href="/images/icon.png" type="image/x-icon" />
+    </head>
+
+    <body class="d-flex flex-column h-100">
+        
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">
+                <img
+                    src="/src/app/static/images/logo4.png"
+                    alt="logo"
+                    height="40px" 
+                    width="160px"
+                />
+            </a>
+            
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-nav w-100">
+                <div class="nav-item text-nowrap d-flex justify-content-end">
+                    <a class="nav-link px-3" href="#">Olá, [Nome do Cliente]</a>
+                    <a class="nav-link px-3" href="/logout">Sair <i class="bi bi-box-arrow-right"></i></a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container-fluid flex-grow-1">
+            <div class="row h-100">
+                
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                    <div class="position-sticky pt-3">
+                        
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                            <span><i class="bi bi-wallet2"></i> Conta</span>
+                        </h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"> 
+                                    <i class="bi bi-cash-coin"></i> Saldo
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi bi-receipt"></i> Extrato
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                            <span><i class="bi bi-arrow-down-up"></i> Transações</span>
+                        </h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi bi-send"></i> Realizar Transferência
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="bi bi-key-fill"></i> Gerenciar Chaves PIX
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                            <span><i class="bi bi-person-fill"></i> Perfil</span>
+                        </h6>
+                        <ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi bi-person-vcard"></i> Meu Perfil
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi bi-pencil-square"></i> Atualizar Cadastro
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Gerenciar Chaves PIX</h1>
+                    </div>
+                    
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h4 class="my-0 fw-normal">Minhas Chaves</h4>
+                            <button class="btn button-laranja" data-bs-toggle="modal" data-bs-target="#modalCadastrarChave">
+                                <i class="bi bi-plus-circle"></i> Cadastrar Nova Chave
+                            </button>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-0">E-mail</h6>
+                                        <small class="text-muted">usuario@email.com</small>
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-clipboard"></i> Copiar</button>
+                                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> Excluir</button>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-0">Celular</h6>
+                                        <small class="text-muted">+55 11 98765-4321</small>
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-clipboard"></i> Copiar</button>
+                                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> Excluir</button>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-0">CPF</h6>
+                                        <small class="text-muted">123.456.789-00</small>
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-clipboard"></i> Copiar</button>
+                                        <button class="btn btn-outline-danger btn-sm" disabled>
+                                            <i class="bi bi-trash"></i> Excluir
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-0">Chave Aleatória</h6>
+                                        <small class="text-muted">a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8</small>
+                                    </div>
+                                    <div class="btn-group" role="group">
+                                        <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-clipboard"></i> Copiar</button>
+                                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> Excluir</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="pt-5 mt-5 text-muted border-top">
+                        © 2025 IFSP - Instituição Financeira de São Paulo
+                    </footer>
+                </main>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="modalCadastrarChave" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel">Cadastrar Nova Chave PIX</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/pix/cadastrar" method="post">
+                        <div class="modal-body">
+                            <p>Selecione o tipo de chave que deseja cadastrar:</p>
+                            
+                            <div class="form-floating">
+                                <select class="form-select" id="tipoChave" name="tipo">
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="cpf">CPF (123.456.789-00)</option>
+                                    <option value="celular">Celular (+55 11 98765-4321)</option>
+                                    <option value="email">E-mail (usuario@email.com)</option>
+                                    <option value="aleatoria">Chave Aleatória</option>
+                                </select>
+                                <label for="tipoChave">Tipo de Chave</label>
+                            </div>
+
+                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn button-laranja">Cadastrar Chave</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
