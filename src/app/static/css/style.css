@@ -673,3 +673,166 @@ footer .container {
     text-decoration: underline;
     color: #18A4E0;
 }
+
+
+.form-card2 {
+    width: 85%; 
+    max-width: 500px; 
+    min-width: 320px; 
+}
+
+body.dashboard-body {
+    background-color: #f7f9fc;
+    overflow-x: hidden; 
+}
+
+.navbar.bg-dark {
+    background-color: #1a1a1a !important; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    background-color: #F4F7F9; 
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    margin-right: 0;
+}
+
+.navbar .nav-link {
+    color: #ccc; 
+    padding: 0.5rem 1rem;
+}
+
+.navbar .nav-link:hover {
+    color: #fff;
+}
+
+.navbar .navbar-toggler {
+    top: 0.25rem;
+    right: 1rem;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.05);
+    background-color: #F4F7F9; 
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        top: 56px; 
+    }
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; 
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+    padding: 0.75rem 1.5rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.95rem;
+    transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+.sidebar .nav-link .bi {
+    margin-right: 10px;
+    color: #555; 
+    line-height: 1.25rem;
+    width: 18px;
+    text-align: center;
+    transition: color 0.1s ease-in-out;
+}
+
+.sidebar .nav-link.active {
+    color: #18A4E0; 
+    font-weight: 700;
+}
+
+.sidebar .nav-link:hover {
+    color: #1078a5; 
+    background-color: rgba(24, 164, 224, 0.05); 
+}
+
+.sidebar .nav-link.active .bi,
+.sidebar .nav-link:hover .bi {
+    color: #18A4E0; 
+}
+
+.sidebar-heading {
+    font-size: 0.75rem;
+    color: #777;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif; 
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+}
+
+main.dashboard-main {
+    flex-grow: 1;
+    background-color: #f7f9fc;
+    padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    main.dashboard-main {
+        padding-top: 56px;
+    }
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    height: 100%;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 1.25rem 1.5rem;
+}
+
+.card-header h4, .card-header h5 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.text-success {
+    color: #198754 !important;
+}
+.text-danger {
+    color: #dc3545 !important;
+}
+
+.nav-tabs .nav-link {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.nav-tabs .nav-link.active {
+    color: #18A4E0;
+    border-color: #dee2e6 #dee2e6 #fff;
+}

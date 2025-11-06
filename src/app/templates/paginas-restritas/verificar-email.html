@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="h-100">
     <head>
-        <title>IFSP - Dados Financeiros</title>
+        <title>IFSP - Verificar E-mail</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -52,69 +52,36 @@
                     class="col-md-6 d-flex flex-column align-items-center justify-content-center coluna texto p-4 p-md-5"
                 >
                     <h1 class="h1 mb-3 fw-bold text-white text-center">
-                        Reta final!
+                        Verifique seu E-mail
                     </h1>
                     <h5 class="h5 mb-3 fw-normal text-white text-center">
-                        Informe seus dados profissionais e financeiros
+                        Enviamos um código de 6 dígitos para o seu e-mail.
                     </h5>
 
                     <div class="form-card2">
-                            <form action="concluir_cadastro.py" method="post">
-                                
-                                <div class="mb-3">
-                                    <input
-                                        type="text"
-                                        name="rg"
-                                        class="form-control"
-                                        id="rg"
-                                        placeholder="Digite seu RG"
-                                        required
-                                    />
-                                </div>
+                        <form action="verificar_token.py" method="post">
+                            
+                            <div class="form-floating mb-3">
+                                <input
+                                    type="text"
+                                    name="token"
+                                    class="form-control"
+                                    id="floatingToken"
+                                    placeholder="123456"
+                                    maxlength="6"
+                                    inputmode="numeric"
+                                />
+                                <label for="floatingToken">Digite o código de verificação</label>
+                            </div>
 
-                                <div class="mb-3">
-                                    <select class="form-select" id="profissao" name="id_profissao" required>
-                                        <option value="" selected disabled class="text-muted">Selecione sua profissão...</option>
-                                        <option value="1">Engenheiro(a) de Software</option>
-                                        <option value="2">Analista de Sistemas</option>
-                                        <option value="3">Estudante</option>
-                                        <option value="4">Professor(a)</option>
-                                        <option value="5">Médico(a)</option>
-                                        <option value="6">Advogado(a)</option>
-                                        <option value="99">Outro</option>
-                                    </select>
-                                </div>
+                            <div class="mb-3">
+                                <button class="btn button-laranja w-100 py-2">Confirmar</button>
+                            </div>
 
-                                <div class="mb-3">
-                                    <input
-                                        type="number"
-                                        name="salario"
-                                        class="form-control"
-                                        id="salario"
-                                        placeholder="Renda mensal (Salário)"
-                                        step="0.01"
-                                        min="0"
-                                        required
-                                    />
-                                </div>
-
-                                <div class="mb-3">
-                                    <input
-                                        type="number"
-                                        name="vl_patrimonio"
-                                        class="form-control"
-                                        id="patrimonio"
-                                        placeholder="Valor do patrimônio (Opcional)"
-                                        step="0.01"
-                                        min="0"
-                                    />
-                                </div>
-
-                                <div class="mb-3">
-                                    <button class="btn button-laranja w-100 py-2">Finalizar Cadastro</button>
-                                </div>
-                            </form>
-                        </div>
+                            <div class="text-center mt-3">
+                                <a href="#" id="checkboxLink">Não recebi o código</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -163,7 +130,7 @@
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div classcol">
                         <div class="footer-column">
                             <h4>Sua Conta</h4>
                             <ul>
