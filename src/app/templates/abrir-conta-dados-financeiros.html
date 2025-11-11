@@ -9,40 +9,21 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="/src/app/static/css/style.css" />
-        <link rel="icon" href="/src/app/static/images/icon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+        <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon" />
+        
+        <script src="https://unpkg.com/imask"></script>
     </head>
 
     <body class="d-flex flex-column h-100">
         <header>
-            <div class="container">
-                <a href="index.html">
-                    <img
-                        src="/src/app/static/images/logo4.png"
-                        alt="logo"
-                        height="50rem"
-                        width="200rem"
-                    />
-                </a>
-                <nav id="links">
-                    <a class="cabecalho" href="faq.html">FAQ</a>
-                    <a class="cabecalho" href="sobre-nos.html">Sobre nós</a>
-                    <a class="cabecalho" href="seguranca.html">Segurança</a>
-                    <a class="cabecalho" id="login" href="login.html"
-                        >Acesse sua conta ›</a
-                    >
-                    <a class="cabecalho" id="abrir_conta" href="abrir-conta.html"
-                        >Abra sua conta »</a
-                    >
-                </nav>
-            </div>
-        </header>
+             </header>
 
         <main class="flex-grow-1">
             <div class="row g-0 flex-grow-1">
                 <div class="col-md-6 d-none d-md-block">
                     <img
-                        src="/src/app/static/images/foto2.jpg"
+                        src="{{ url_for('static', filename='images/foto2.jpg') }}"
                         alt="Mulher sorrindo usando notebook"
                         class="img-fluid w-100 h-100 object-fit-cover"
                     />
@@ -59,10 +40,9 @@
                     </h5>
 
                     <div class="form-card2">
-                            <form action="concluir_cadastro.py" method="post">
+                            <form action="{{ url_for('auth.abrir_conta_financeiro') }}" method="post" class="needs-validation" novalidate>
                                 
-                                <div class="mb-3">
-                                    <input
+                                <div class="form-floating mb-3"> <input
                                         type="text"
                                         name="rg"
                                         class="form-control"
@@ -70,67 +50,43 @@
                                         placeholder="Digite seu RG"
                                         required
                                     />
+                                    <label for="rg">Digite seu RG</label>
+                                    <div class="invalid-feedback">
+                                        Por favor, insira seu RG.
+                                    </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <select class="form-select" id="profissao" name="id_profissao" required>
-                                        <option value="" selected disabled class="text-muted">Selecione sua profissão...</option>
-                                        <option value="1">Advogado(a)</option>
-                                        <option value="2">Analista de Sistemas</option>
-                                        <option value="3">Arquiteto(a)</option>
-                                        <option value="4">Assistente Administrativo</option>
-                                        <option value="5">Autônomo(a)</option>
-                                        <option value="6">Bombeiro(a)</option>
-                                        <option value="7">Contador(a)</option>
-                                        <option value="8">Dentista</option>
-                                        <option value="9">Designer</option>
-                                        <option value="10">Desenvolvedor(a) / Programador(a)</option>
-                                        <option value="11">Empresário(a)</option>
-                                        <option value="12">Enfermeiro(a)</option>
-                                        <option value="13">Engenheiro(a)</option>
-                                        <option value="14">Estudante</option>
-                                        <option value="15">Farmacêutico(a)</option>
-                                        <option value="16">Fisioterapeuta</option>
-                                        <option value="17">Funcionário(a) Público(a)</option>
-                                        <option value="18">Jornalista</option>
-                                        <option value="19">Médico(a)</option>
-                                        <option value="20">Motorista</option>
-                                        <option value="21">Músico(a)</option>
-                                        <option value="22">Nutricionista</option>
-                                        <option value="23">Pedreiro</option>
-                                        <option value="24">Policial</option>
-                                        <option value="25">Professor(a)</option>
-                                        <option value="26">Psicólogo(a)</option>
-                                        <option value="27">Publicitário(a)</option>
-                                        <option value="28">Técnico(a) em Informática</option>
-                                        <option value="29">Vendedor(a)</option>
-                                        <option value="30">Veterinário(a)</option>
+                                <div class="form-floating mb-3"> <select class="form-select" id="profissao" name="id_profissao" required>
+                                        <option value="" selected disabled>Selecione sua profissão...</option>
                                         <option value="99">Outro</option>
                                     </select>
+                                    <label for="profissao">Selecione sua profissão</label>
+                                    <div class="invalid-feedback">
+                                        Por favor, selecione uma profissão.
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <input
-                                        type="number"
+                                <div class="form-floating mb-3"> <input
+                                        type="text" 
                                         name="salario"
                                         class="form-control"
                                         id="salario"
                                         placeholder="Renda mensal (Salário)"
-                                        step="0.01"
-                                        min="0"
                                         required
                                     />
+                                    <label for="salario">Renda mensal (Salário)</label>
+                                    <div class="invalid-feedback">
+                                        Por favor, insira sua renda.
+                                    </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <input
-                                        type="number"
+                                <div class="form-floating mb-3"> <input
+                                        type="text"
                                         name="vl_patrimonio"
                                         class="form-control"
                                         id="patrimonio"
                                         placeholder="Valor do patrimônio (Opcional)"
-                                        step="0.01"
-                                        min="0"
                                     />
+                                    <label for="patrimonio">Valor do patrimônio (Opcional)</label>
                                 </div>
 
                                 <div class="mb-3">
@@ -144,81 +100,9 @@
         </main>
 
         <footer>
-            <div class="container py-5">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-                    <div class="col">
-                        <div class="footer-column">
-                            <h3 class="footer-logo-text">IFSP</h3>
-                            <p class="footer-description">
-                                Instituição Financeira de São Paulo
-                            </p>
-                            <h4>Siga-nos</h4>
-                            <div class="footer-social-links">
-                                <a href="#">LinkedIn</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Navegação</h4>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                                <li><a href="seguranca.html">Segurança</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="termos-de-uso.html">Termos de Uso</a></li>
-                                <li>
-                                    <a href="politica-de-privacidade.html"
-                                        >Política de Privacidade</a
-                                    >
-                                </li>
-                                <li><a href="contato.html">Contato</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Sua Conta</h4>
-                            <ul>
-                                <li>
-                                    <a href="login.html" class="footer-btn-link"
-                                        >Acesse sua conta</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="abrir-conta.html" class="footer-btn-link"
-                                        >Abra sua conta</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <hr class="footer-divider" />
-            </div>
-            <div class="container footer-bottom">
-                <p>
-                    © 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de
-                    São Paulo
-                </p>
-            </div>
-        </footer>
+            </footer>
 
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <script src="https://unpkg.com/imask"></script>
         
         <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     </body>

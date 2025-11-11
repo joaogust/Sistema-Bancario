@@ -15,8 +15,14 @@ def create_app():
     app.config.from_object(Config) # Diz a aplicação app (objeto de Flask) para aplicar as configurações de Config.
 
     db.init_app(app) # garante que a limpeza do banco de dados aconteça automaticamente
-
+    
+    # 1. Registrar o blueprint 'home' (você já deve ter isso)
+    from .routes import home_routes
     app.register_blueprint(home_routes.bp)
+
+    # 2. ADICIONE ISSO: Registrar o blueprint 'auth'
+    from .routes import auth_routes
+    app.register_blueprint(auth_routes.bp)
 
     return app
 

@@ -9,40 +9,21 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="/src/app/static/css/style.css" />
-        <link rel="icon" href="/src/app/static/images/icon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+        <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon" />
+        
+        <script src="https://unpkg.com/imask"></script>
     </head>
 
     <body class="d-flex flex-column h-100">
         <header>
-            <div class="container">
-                <a href="index.html">
-                    <img
-                        src="/src/app/static/images/logo4.png"
-                        alt="logo"
-                        height="50rem"
-                        width="200rem"
-                    />
-                </a>
-                <nav id="links">
-                    <a class="cabecalho" href="faq.html">FAQ</a>
-                    <a class="cabecalho" href="sobre-nos.html">Sobre nós</a>
-                    <a class="cabecalho" href="seguranca.html">Segurança</a>
-                    <a class="cabecalho" id="login" href="login.html"
-                        >Acesse sua conta ›</a
-                    >
-                    <a class="cabecalho" id="abrir_conta" href="abrir-conta.html"
-                        >Abra sua conta »</a
-                    >
-                </nav>
-            </div>
-        </header>
+             </header>
 
         <main class="flex-grow-1">
             <div class="row g-0 flex-grow-1">
                 <div class="col-md-6 d-none d-md-block">
                     <img
-                        src="/src/app/static/images/foto2.jpg"
+                        src="{{ url_for('static', filename='images/foto2.jpg') }}"
                         alt="Mulher sorrindo usando notebook"
                         class="img-fluid w-100 h-100 object-fit-cover"
                     />
@@ -59,7 +40,7 @@
                     </h5>
 
                     <div class="form-card2">
-                        <form action="enviar_endereco.py" method="post">
+                        <form action="{{ url_for('auth.abrir_conta_endereco') }}" method="post" class="needs-validation" novalidate>
                             
                             <div class="form-floating mb-3">
                                 <input
@@ -68,8 +49,11 @@
                                     class="form-control"
                                     id="floatingCep"
                                     placeholder="Ex: 01001000"
-                                />
+                                    required />
                                 <label for="floatingCep">CEP</label>
+                                <div class="invalid-feedback">
+                                    Por favor, insira um CEP.
+                                </div>
                             </div>
 
                             <div class="form-floating mb-3">
@@ -79,8 +63,12 @@
                                     class="form-control"
                                     id="floatingRua"
                                     placeholder="Ex: Av. Paulista"
+                                    required
                                 />
                                 <label for="floatingRua">Rua / Logradouro</label>
+                                <div class="invalid-feedback">
+                                    Campo obrigatório.
+                                </div>
                             </div>
 
                             <div class="row g-2 mb-3">
@@ -92,8 +80,12 @@
                                             class="form-control"
                                             id="floatingNumero"
                                             placeholder="Ex: 1000"
+                                            required
                                         />
                                         <label for="floatingNumero">Número</label>
+                                        <div class="invalid-feedback">
+                                            Obrigatório.
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md">
@@ -117,8 +109,12 @@
                                     class="form-control"
                                     id="floatingBairro"
                                     placeholder="Ex: Bela Vista"
+                                    required
                                 />
                                 <label for="floatingBairro">Bairro</label>
+                                <div class="invalid-feedback">
+                                    Campo obrigatório.
+                                </div>
                             </div>
 
                             <div class="row g-2 mb-3">
@@ -130,43 +126,26 @@
                                             class="form-control"
                                             id="floatingCidade"
                                             placeholder="Ex: São Paulo"
+                                            required
                                         />
                                         <label for="floatingCidade">Cidade</label>
+                                        <div class="invalid-feedback">
+                                            Obrigatório.
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating">
-                                        <select class="form-select" id="floatingEstado" name="estado">
+                                        <select class="form-select" id="floatingEstado" name="estado" required>
                                             <option value="" selected disabled>Selecione...</option>
                                             <option value="AC">Acre</option>
-                                            <option value="AL">Alagoas</option>
-                                            <option value="AP">Amapá</option>
-                                            <option value="AM">Amazonas</option>
-                                            <option value="BA">Bahia</option>
-                                            <option value="CE">Ceará</option>
-                                            <option value="DF">Distrito Federal</option>
-                                            <option value="ES">Espírito Santo</option>
-                                            <option value="GO">Goiás</option>
-                                            <option value="MA">Maranhão</option>
-                                            <option value="MT">Mato Grosso</option>
-                                            <option value="MS">Mato Grosso do Sul</option>
-                                            <option value="MG">Minas Gerais</option>
-                                            <option value="PA">Pará</option>
-                                            <option value="PB">Paraíba</option>
-                                            <option value="PR">Paraná</option>
-                                            <option value="PE">Pernambuco</option>
-                                            <option value="PI">Piauí</option>
-                                            <option value="RJ">Rio de Janeiro</option>
-                                            <option value="RN">Rio Grande do Norte</option>
-                                            <option value="RS">Rio Grande do Sul</option>
-                                            <option value="RO">Rondônia</option>
-                                            <option value="RR">Roraima</option>
-                                            <option value="SC">Santa Catarina</option>
                                             <option value="SP">São Paulo</option>
-                                            <option value="SE">Sergipe</option>
                                             <option value="TO">Tocantins</option>
                                         </select>
                                         <label for="floatingEstado">Estado</label>
+                                        <div class="invalid-feedback">
+                                            Obrigatório.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +157,8 @@
                                     class="form-control"
                                     id="floatingPais"
                                     placeholder="Ex: Brasil"
-                                    value="Brasil" 
+                                    value="Brasil"
+                                    required 
                                 />
                                 <label for="floatingPais">País</label>
                             </div>
@@ -193,81 +173,9 @@
         </main>
 
         <footer>
-            <div class="container py-5">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-                    <div class="col">
-                        <div class="footer-column">
-                            <h3 class="footer-logo-text">IFSP</h3>
-                            <p class="footer-description">
-                                Instituição Financeira de São Paulo
-                            </p>
-                            <h4>Siga-nos</h4>
-                            <div class="footer-social-links">
-                                <a href="#">LinkedIn</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Navegação</h4>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="sobre-nos.html">Sobre Nós</a></li>
-                                <li><a href="seguranca.html">Segurança</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="termos-de-uso.html">Termos de Uso</a></li>
-                                <li>
-                                    <a href="politica-de-privacidade.html"
-                                        >Política de Privacidade</a
-                                    >
-                                </li>
-                                <li><a href="contato.html">Contato</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Sua Conta</h4>
-                            <ul>
-                                <li>
-                                    <a href="login.html" class="footer-btn-link"
-                                        >Acesse sua conta</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="abrir-conta.html" class="footer-btn-link"
-                                        >Abra sua conta</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <hr class="footer-divider" />
-            </div>
-            <div class="container footer-bottom">
-                <p>
-                    © 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de
-                    São Paulo
-                </p>
-            </div>
-        </footer>
+            </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <script src="https://unpkg.com/imask"></script>
         
         <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     </body>
