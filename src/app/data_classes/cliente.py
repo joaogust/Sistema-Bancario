@@ -13,3 +13,4 @@ class Cliente:
     salario: Decimal
     vl_patrimonio: Decimal
     id_profissao: int
+    senha_hash: str

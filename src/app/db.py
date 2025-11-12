@@ -1,4 +1,5 @@
 import psycopg2
+import psycopg2.extras
 from flask import current_app, g
 
 def get_db():
@@ -15,7 +16,8 @@ def get_db():
             host= current_app.config['POSTGRESQL_HOST'],
             dbname= current_app.config['POSTGRESQL_DATABASE'],
             user= current_app.config['POSTGRESQL_USER'],
-            password= current_app.config['POSTGRESQL_PASSWORD']
+            password= current_app.config['POSTGRESQL_PASSWORD'],
+            cursor_factory=psycopg2.extras.DictCursor
         )
     return g.db
 

@@ -37,6 +37,7 @@ CREATE TABLE Cliente (
     salario DECIMAL(10, 2),
     vl_patrimonio DECIMAL(12, 2),
     id_profissao INT,
+    senha_hash VARCHAR(20),
     CONSTRAINT pk_cliente PRIMARY KEY (id_cliente),
     CONSTRAINT fk_cliente_profissao_id_profissao FOREIGN KEY REFERENCES Profissao(id_profissao)
 )

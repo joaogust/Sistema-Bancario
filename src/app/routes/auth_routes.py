@@ -1,40 +1,89 @@
-# Lembre-se de importar 'request', 'redirect', 'url_for'
-from flask import render_template, Blueprint, request, redirect, url_for
+from flask import render_template, Blueprint, request, redirect, url_for, jsonify, session
+from src.app.services.auth_services import *
 
-# 1. Mude o nome do blueprint para 'auth'
 bp = Blueprint('auth', __name__) 
 
-@bp.route('/login', methods=['GET', 'POST']) # Aceita GET e POST
+@bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        # Sua lógica de login aqui...
-        cpf = request.form['cpf']
-        return f"Logando com {cpf}..."
-    return render_template('login.html') # Mostra a página de login
+        dados = request.form
+        cpf = dados.get('cpf')
+        senha = dados.get('senha')
+        cliente = validar_login(cpf, senha)
+
+        if cliente:
+            return jsonify({'status': 'sucesso', 'cliente_id': cliente.id}), 200
+        else:
+            return jsonify({'status': 'erro', 'mensagem': 'CPF ou senha inválidos'}), 401
+    return None
 
 @bp.route('/abrir-conta', methods=['GET', 'POST']) # Aceita GET e POST
 def abrir_conta():
     if request.method == 'POST':
-        # Sua lógica de cadastro aqui...
-        nome = request.form['nome-completo']
-        # Redireciona para a próxima etapa (ex: endereço)
+        dados = request.form
+
+        dados_pessoais = {
+            "nome": dados.get('nome'),
+            "telefone": dados.get('telefone'),
+            "email": dados.get('email'),
+            "cpf": dados.get('cpf'),
+            "nascimento": dados.get('nascimento')
+        }
+
+        session['dados_registro'] = dados_pessoais
+
         return redirect(url_for('auth.abrir_conta_endereco')) 
-    return render_template('abrir-conta.html') # Mostra a pág. de cadastro
+    return render_template('abrir-conta.html')
 
 @bp.route('/abrir-conta-endereco', methods=['GET', 'POST'])
 def abrir_conta_endereco():
     if request.method == 'POST':
-        # Lógica para salvar o endereço...
+        dados = session['dados_registro']
+
+        dados.update ({
+            'cep': dados.get('cep'),
+            'rua': dados.get('rua'),
+            'numero': dados.get('numero'),
+            'complemento': dados.get('complemento'),
+            'bairro': dados.get('bairro'),
+            'cidade': dados.get('cidade'),
+            'estado': dados.get('estado'),
+            'pais': dados.get('pais')
+        })
+
+        session['dados_registro'] = dados
+
         return redirect(url_for('auth.abrir_conta_financeiro'))
     return render_template('abrir-conta-endereco.html')
 
 @bp.route('/abrir-conta-dados-financeiros', methods=['GET', 'POST'])
 def abrir_conta_financeiro():
     if request.method == 'POST':
-        # Lógica para salvar dados financeiros...
-        # Redireciona para a próxima etapa (ex: criar senha)
-        return redirect(url_for('auth.criar_senha_final')) 
+        dados = session['dados_registro']
+
+        dados.update ({
+            'rg': dados.get('rg'),
+            'profissao': dados.get('profissao'),
+            'salario': dados.get('salario'),
+            'vl_patrimonio': dados.get('vl_patrimonio'),
+        })
+
+        return redirect(url_for('auth.criar_senha_final'))
     return render_template('abrir-conta-dados-financeiros.html')
+
+@bp.route('/paginas-restritas/criar-senha', methods=['GET', 'POST'])
+def criar_senha_final():
+    if request.method == 'POST':
+        dados = session['dados_registro']
+
+        dados.update ({
+            'senha': dados.get('senha')
+        })
+
+        return redirect(url_for('cliente.area-do-cliente'))
+    return render_template('paginas-restritas/criar-senha.html')
+
+
 
 @bp.route('/esqueci-senha', methods=['GET', 'POST'])
 def esqueci_senha():
