@@ -1,38 +1,51 @@
-from flask import render_template, Blueprint, request, redirect, url_for, jsonify, session
-from src.app.services.auth_services import *
-
+from flask import render_template, Blueprint, request, flash, redirect, url_for, jsonify, session
+from src.app.services import cliente_services # Importe seu serviço de cliente
 bp = Blueprint('auth', __name__) 
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         dados = request.form
-        cpf = dados.get('cpf')
-        senha = dados.get('senha')
-        cliente = validar_login(cpf, senha)
+        cpf = dados.get('cpf')     # CPF virá com máscara (ex: '123.456.789-00')
+        senha = dados.get('senha') # Senha em texto plano
+        
+        # Chame a função a partir do serviço importado
+        cliente = cliente_services.validar_login(cpf, senha)
 
         if cliente:
-            return jsonify({'status': 'sucesso', 'cliente_id': cliente.id}), 200
+            # (Aqui você deve criar a sessão do usuário)
+            # session['user_id'] = cliente.id_cliente
+            return jsonify({'status': 'sucesso', 'cliente_id': cliente.id_cliente}), 200
         else:
             return jsonify({'status': 'erro', 'mensagem': 'CPF ou senha inválidos'}), 401
-    return None
+    
+    # [CORRIGIDO] Se for GET, você deve renderizar a página de login
+    return render_template('login.html')
 
-@bp.route('/abrir-conta', methods=['GET', 'POST']) # Aceita GET e POST
+@bp.route('/abrir-conta', methods=['GET', 'POST'])
 def abrir_conta():
     if request.method == 'POST':
-        dados = request.form
+        # 1. Obter os dados do formulário
+        cpf_sujo = request.form['cpf'] # Ex: '123.456.789-00'
+        
+        # 2. Limpar o CPF (MUITO IMPORTANTE)
+        cpf_limpo = cpf_sujo.replace('.', '').replace('-', '') # Ex: '12345678900'
+        
+        # 3. Chamar o serviço para validar
+        if cliente_services.verificar_cpf_existente(cpf_limpo):
+            # 4. Se existir, mostrar um erro (flash) e recarregar a página
+            flash('Este CPF já está cadastrado. Tente fazer login.', 'error')
+            return redirect(url_for('auth.abrir_conta'))
+        
+        # 5. Se não existir, continue com o cadastro...
+        # (Pegue os outros dados: nome, email, etc.)
+        # (Salve os dados na sessão para a próxima etapa)
+        # session['cadastro_nome'] = request.form['nome-completo']
+        # session['cadastro_cpf'] = cpf_limpo
+        # ...
+        
+        return redirect(url_for('auth.abrir_conta_endereco'))
 
-        dados_pessoais = {
-            "nome": dados.get('nome'),
-            "telefone": dados.get('telefone'),
-            "email": dados.get('email'),
-            "cpf": dados.get('cpf'),
-            "nascimento": dados.get('nascimento')
-        }
-
-        session['dados_registro'] = dados_pessoais
-
-        return redirect(url_for('auth.abrir_conta_endereco')) 
     return render_template('abrir-conta.html')
 
 @bp.route('/abrir-conta-endereco', methods=['GET', 'POST'])
@@ -91,14 +104,3 @@ def esqueci_senha():
         # Lógica para enviar e-mail de redefinição...
         return "Link de redefinição enviado!"
     return render_template('esqueci-senha.html')
-
-# (Você também precisará das rotas para criar/redefinir a senha)
-@bp.route('/criar-senha-final', methods=['GET', 'POST'])
-def criar_senha_final():
-    # Esta rota deve ter os inputs name="senha" e name="senha_confirm"
-    # para o seu JavaScript de validação funcionar.
-    if request.method == 'POST':
-        senha = request.form['senha']
-        # Salvar a senha (com hash!) e finalizar o cadastro
-        return redirect(url_for('auth.login'))
-    return render_template('criar-senha.html') # Crie este template

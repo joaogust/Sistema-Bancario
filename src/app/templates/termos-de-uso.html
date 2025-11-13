@@ -46,30 +46,70 @@
 
                 <div class="about-section">
                     <h2>1. Aceitação dos Termos</h2>
-                    </div>
+                    <p>
+						Ao acessar e utilizar a plataforma IFSP (“Plataforma”), você
+						concorda em cumprir estes Termos de Uso. Se não concordar com alguma
+						parte destes termos, recomendamos que não utilize esta plataforma.
+					</p>
+                </div>
 
                 <div class="about-section">
                     <h2>2. Natureza Acadêmica do Projeto</h2>
-                     </div>
+                    <p>
+						Esta plataforma é um <strong>PROJETO ACADÊMICO</strong> desenvolvido
+						por alunos do Instituto Federal de São Paulo (IFSP), com fins
+						exclusivamente educacionais, demonstrativos e de portfólio.
+					</p>
+					<ul class="list-unstyled mt-3">
+						<li class="mb-2">
+							<strong>Não é um serviço financeiro real:</strong> Nenhuma
+							transação financeira verdadeira é processada. Todos os valores,
+							saldos e dados são fictícios.
+						</li>
+						<li class="mb-2">
+							<strong>Não utilize dados reais:</strong> Não insira dados
+							bancários, números de cartão de crédito ou informações pessoais
+							sensíveis reais.
+						</li>
+					</ul>
+                </div>
 
                 <div class="about-section">
                     <h2>3. Responsabilidades do Usuário</h2>
-                     </div>
-
-                <div class="about-section">
-                    <h2>4. Limitação de Responsabilidade</h2>
-                     </div>
-
-                <div class="about-section">
-                    <h2>5. Contato</h2>
-                    <p>
-                        Para dúvidas ou solicitações sobre estes Termos de Uso, entre em
-                        contato conosco por meio da
-                        <a href="{{ url_for('home.contato') }}">página de contato</a>.
-                    </p>
+                    <p>Ao criar uma conta de simulação, o usuário concorda em:</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2">
+                            Fornecer apenas informações fictícias no cadastro.
+                        </li>
+                        <li class="mb-2">Manter a confidencialidade da senha de acesso.</li>
+                        <li class="mb-2">
+                            Usar a plataforma exclusivamente para fins educacionais e de
+                            teste.
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </main>
+
+                <div class="about-section">
+					<h2>4. Limitação de Responsabilidade</h2>
+					<p>
+						Por se tratar de uma simulação acadêmica sem fins lucrativos, a
+						equipe de desenvolvimento e o IFSP não se responsabilizam por
+						eventuais “perdas” de dados fictícios, falhas técnicas ou
+						interrupções. O sistema é fornecido “como está”, sem garantias de
+						qualquer tipo.
+					</p>
+				</div>
+
+				<div class="about-section">
+					<h2>5. Contato</h2>
+					<p>
+						Para dúvidas ou solicitações sobre estes Termos de Uso, entre em
+						contato conosco por meio da
+						<a href="{{ url_for('home.contato') }}">página de contato</a>.
+					</p>
+				</div>
+			</div>
+		</main>
 
         <footer>
             <div class="container py-5">
@@ -93,7 +133,7 @@
                         <div class="footer-column">
                             <h4>Legal</h4>
                             <ul>
-                                <li><a href="{{ url_for('home.termos_de-uso') }}">Termos de Uso</a></li>
+                                <li><a href="{{ url_for('home.termos_de_uso') }}">Termos de Uso</a></li>
                                 <li>
                                     <a href="{{ url_for('home.politica_de_privacidade') }}"
                                         >Política de Privacidade</a
