@@ -1,24 +1,31 @@
+from src.app.db import get_db
 from src.app.data_classes.movimentacao import Movimentacao
-from src.app.db import get_db, close_db
-from datetime import datetime
+import psycopg2.extras
 
-def create_movimentacao(id: int, id_conta: int, data_hora: datetime, valor: float, tipo: str, id_pix: int, id_ted: int):
-    if valor <= 0:
-        return False, "Valor deve ser maior que 0"
-    database = get_db()
-    cursor = database.cursor()
-    query = "INSERT INTO Movimentacao (id, id_conta, data_hora, valor, tipo, id_pix, id_ted) VALUES (?, ?, ?, ?, ?, ?, ?)"
-    cursor.execute(query, (id, id_conta, data_hora, valor, tipo, id_pix, id_ted))
-    database.commit()
-    close_db(database)
-    return True, "Transferência realizada com sucesso!"
-
-def get_movimentacao(id: int):
-    database = get_db()
-    cursor = database.cursor()
-    query = "SELECT * FROM Movimentacao WHERE id = ?"
-    resultado = cursor.execute(query, id)
-    if resultado is None:
-        return None
-    else:
-        return Movimentacao(**resultado)
+def listar_movimentacoes_por_conta(id_conta: int, limite: int = 20) -> list[Movimentacao]:
+    """
+    Busca as últimas movimentações de uma conta.
+    """
+    db = get_db()
+    cursor = db.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    try:
+        # Busca as movimentações mais recentes primeiro (DESC)
+        query = """
+            SELECT * FROM movimentacoes 
+            WHERE id_conta = %s 
+            ORDER BY data_hora DESC 
+            LIMIT %s
+        """
+        cursor.execute(query, (id_conta, limite))
+        resultados = cursor.fetchall()
+        
+        lista_movimentacoes = []
+        for row in resultados:
+            lista_movimentacoes.append(Movimentacao(**row))
+            
+        return lista_movimentacoes
+    except Exception as e:
+        print(f"Erro ao buscar extrato: {e}", flush=True)
+        return []
+    finally:
+        cursor.close()

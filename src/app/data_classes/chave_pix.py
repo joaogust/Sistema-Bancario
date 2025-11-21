@@ -1,7 +1,10 @@
 from dataclasses import dataclass
 
 @dataclass
-class Chave_pix:
+class ChavePix:
+    """
+    Representação em Python da tabela 'chaves_pix' do banco de dados.
+    """
     id: int
     chave: str
     tipo: str

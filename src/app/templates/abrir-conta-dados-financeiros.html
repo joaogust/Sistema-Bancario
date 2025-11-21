@@ -1,109 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="h-100">
-    <head>
-        <title>IFSP - Dados Financeiros</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-        <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon" />
-        
-        <script src="https://unpkg.com/imask"></script>
-    </head>
-
-    <body class="d-flex flex-column h-100">
-        <header>
-             </header>
-
-        <main class="flex-grow-1">
-            <div class="row g-0 flex-grow-1">
-                <div class="col-md-6 d-none d-md-block">
-                    <img
-                        src="{{ url_for('static', filename='images/foto2.jpg') }}"
-                        alt="Mulher sorrindo usando notebook"
-                        class="img-fluid w-100 h-100 object-fit-cover"
-                    />
-                </div>
-
-                <div
-                    class="col-md-6 d-flex flex-column align-items-center justify-content-center coluna texto p-4 p-md-5"
-                >
-                    <h1 class="h1 mb-3 fw-bold text-white text-center">
-                        Reta final!
-                    </h1>
-                    <h5 class="h5 mb-3 fw-normal text-white text-center">
-                        Informe seus dados profissionais e financeiros
-                    </h5>
-
-                    <div class="form-card2">
-                            <form action="{{ url_for('auth.abrir_conta_financeiro') }}" method="post" class="needs-validation" novalidate>
-                                
-                                <div class="form-floating mb-3"> <input
-                                        type="text"
-                                        name="rg"
-                                        class="form-control"
-                                        id="rg"
-                                        placeholder="Digite seu RG"
-                                        required
-                                    />
-                                    <label for="rg">Digite seu RG</label>
-                                    <div class="invalid-feedback">
-                                        Por favor, insira seu RG.
-                                    </div>
-                                </div>
-
-                                <div class="form-floating mb-3"> <select class="form-select" id="profissao" name="id_profissao" required>
-                                        <option value="" selected disabled>Selecione sua profissão...</option>
-                                        <option value="99">Outro</option>
-                                    </select>
-                                    <label for="profissao">Selecione sua profissão</label>
-                                    <div class="invalid-feedback">
-                                        Por favor, selecione uma profissão.
-                                    </div>
-                                </div>
-                                <div class="form-floating mb-3"> <input
-                                        type="text" 
-                                        name="salario"
-                                        class="form-control"
-                                        id="salario"
-                                        placeholder="Renda mensal (Salário)"
-                                        required
-                                    />
-                                    <label for="salario">Renda mensal (Salário)</label>
-                                    <div class="invalid-feedback">
-                                        Por favor, insira sua renda.
-                                    </div>
-                                </div>
-
-                                <div class="form-floating mb-3"> <input
-                                        type="text"
-                                        name="vl_patrimonio"
-                                        class="form-control"
-                                        id="patrimonio"
-                                        placeholder="Valor do patrimônio (Opcional)"
-                                    />
-                                    <label for="patrimonio">Valor do patrimônio (Opcional)</label>
-                                </div>
-
-                                <div class="mb-3">
-                                    <button class="btn button-laranja w-100 py-2">Finalizar Cadastro</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            </footer>
-
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-    </body>
+	<head>
+		<title>IFSP - Dados Financeiros</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+		<link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon" />
+		<script src="https://unpkg.com/imask"></script>
+	</head>
+	<body class="d-flex flex-column h-100">
+		<header>
+			<div class="container">
+				<a href="{{ url_for('home.index') }}">
+				<img
+					src="{{ url_for('static', filename='images/logo4.png') }}"
+					alt="logo"
+					height="50rem"
+					width="200rem"
+					/>
+				</a>
+				<nav id="links">
+					<a class="cabecalho" href="{{ url_for('home.faq') }}">FAQ</a>
+					<a class="cabecalho" href="{{ url_for('home.sobre_nos') }}">Sobre nós</a>
+					<a class="cabecalho" href="{{ url_for('home.seguranca') }}">Segurança</a>
+					<a class="cabecalho" id="login" href="{{ url_for('auth.login') }}">Acesse sua conta ›</a>
+					<a class="cabecalho" id="abrir_conta" href="{{ url_for('auth.abrir_conta') }}">Abra sua conta »</a>
+				</nav>
+			</div>
+		</header>
+		<main class="flex-grow-1">
+			<div class="row g-0 flex-grow-1">
+				<div class="col-md-6 d-none d-md-block">
+					<img
+						src="{{ url_for('static', filename='images/foto2.jpg') }}"
+						alt="Mulher sorrindo usando notebook"
+						class="img-fluid w-100 h-100 object-fit-cover"
+						/>
+				</div>
+				<div class="col-md-6 d-flex flex-column align-items-center justify-content-center coluna texto p-4 p-md-5">
+					<h1 class="h1 mb-3 fw-bold text-white text-center">Reta final!</h1>
+					<h5 class="h5 mb-3 fw-normal text-white text-center">Informe seus dados profissionais e financeiros</h5>
+					<div class="form-card2">
+						<form action="{{ url_for('auth.abrir_conta_financeiro') }}" method="post" class="needs-validation" novalidate>
+							<div class="form-floating mb-3">
+								<input
+									type="text"
+									name="rg"
+									class="form-control"
+									id="rg"
+									placeholder="Digite seu RG"
+									required
+								/>
+								<label for="rg">Digite seu RG</label>
+								<div class="invalid-feedback">Por favor, insira seu RG.</div>
+							</div>
+							<div class="form-floating mb-3">
+								<select class="form-select" id="profissao" name="id_profissao" required>
+									<option value="" selected disabled>Selecione sua profissão...</option>
+									{% for p in profissoes %}
+									{% if p.id != 99 %}
+									<option value="{{ p.id }}">{{ p.nome }}</option>
+									{% endif %}
+									{% endfor %}
+									<option value="99">Outro</option>
+								</select>
+								<label for="profissao">Selecione sua profissão</label>
+								<div class="invalid-feedback">Por favor, selecione uma profissão.</div>
+							</div>
+							<div class="form-floating mb-3">
+								<input
+									type="text" 
+									name="salario"
+									class="form-control"
+									id="salario"
+									placeholder="Renda mensal (Salário)"
+									required
+								/>
+								<label for="salario">Renda mensal (Salário)</label>
+								<div class="invalid-feedback">Por favor, insira sua renda.</div>
+							</div>
+							<div class="form-floating mb-3"> 
+								<input
+									type="text"
+									name="vl_patrimonio"
+									class="form-control"
+									id="patrimonio"
+									placeholder="Valor do patrimônio (Opcional)"
+								/>
+								<label for="patrimonio">Valor do patrimônio (Opcional)</label>
+							</div>
+							<div class="mb-3">
+								<button class="btn button-laranja w-100 py-2">Finalizar Cadastro</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<div class="container py-5">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+					<div class="col">
+						<div class="footer-column">
+							<h3 class="footer-logo-text">IFSP</h3>
+							<p class="footer-description">
+								Instituição Financeira de São Paulo
+							</p>
+							<h4>Siga-nos</h4>
+							<div class="footer-social-links">
+								<a href="#">LinkedIn</a>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Navegação</h4>
+							<ul>
+								<li><a href="{{ url_for('home.index') }}">Home</a></li>
+								<li><a href="{{ url_for('home.faq') }}">FAQ</a></li>
+								<li><a href="{{ url_for('home.sobre_nos') }}">Sobre Nós</a></li>
+								<li><a href="{{ url_for('home.seguranca') }}">Segurança</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Legal</h4>
+							<ul>
+								<li><a href="{{ url_for('home.termos_de_uso') }}">Termos de Uso</a></li>
+								<li><a href="{{ url_for('home.politica_de_privacidade') }}">Política de Privacidade</a></li>
+								<li><a href="{{ url_for('home.contato') }}">Contato</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Sua Conta</h4>
+							<ul>
+								<li><a href="{{ url_for('auth.login') }}" class="footer-btn-link">Acesse sua conta</a></li>
+								<li><a href="{{ url_for('auth.abrir_conta') }}" class="footer-btn-link">Abra sua conta</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<hr class="footer-divider" />
+			</div>
+			<div class="container footer-bottom">
+				<p>
+					© 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de
+					São Paulo
+				</p>
+			</div>
+		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+	</body>
 </html>

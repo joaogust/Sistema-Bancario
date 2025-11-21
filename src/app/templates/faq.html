@@ -1,178 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <title>IFSP - Perguntas Frequentes</title>
-        <meta charset="UTF-8" />
-
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-        <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon" />
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <a href="{{ url_for('home.index') }}">
-                    <img
-                        src="{{ url_for('static', filename='images/logo4.png') }}"
-                        alt="logo"
-                        height="50rem"
-                        width="200rem"
-                    />
-                </a>
-                <nav id="links">
-                    <a class="cabecalho" href="{{ url_for('home.faq') }}">FAQ</a>
-                    <a class="cabecalho" href="{{ url_for('home.sobre_nos') }}">Sobre nós</a>
-                    <a class="cabecalho" href="{{ url_for('home.seguranca') }}">Segurança</a>
-                    <a class="cabecalho" id="login" href="{{ url_for('auth.login') }}"
-                        >Acesse sua conta ›</a
-                    >
-                    <a class="cabecalho" id="abrir_conta" href="{{ url_for('auth.abrir_conta') }}"
-                        >Abra sua conta »</a
-                    >
-                </nav>
-            </div>
-        </header>
-
-        <main>
-            <video width="100%" autoplay playsinline muted loop> <source src="{{ url_for('static', filename='videos/faq-video.mp4') }}" type="video/mp4" />
-                Seu navegador não suporta o elemento de vídeo.
-            </video>
-
-            <div class="container py-5 about-page">
-                <h1 class="text-center mb-5">Perguntas Frequentes (FAQ)</h1>
-
-                <div class="about-section">
-                    <h2>O que é a IFSP?</h2>
-                    <p>
-                        A <strong>IFSP</strong> é uma instituição financeira digital
-                        simulada, desenvolvida como um projeto acadêmico. Nosso objetivo é
-                        oferecer uma plataforma moderna e intuitiva para pagamentos,
-                        transferências e gerenciamento financeiro pessoal, totalmente
-                        digital e gratuita.
-                    </p>
-                    <a href="{{ url_for('home.sobre_nos') }}" class="btn btn-outline-primary mt-3"
-                        >Saiba mais ›</a
-                    >
-                </div>
-
-                <div class="about-section">
-                    <h2>Como abro uma conta?</h2>
-                    <p>
-                        Abertura de conta é simples e rápida! Clique em “Abra sua conta” no
-                        menu principal e siga as instruções. Será necessário apenas um
-                        documento de identidade e um e-mail válido.
-                    </p>
-                    <a href="{{ url_for('auth.abrir_conta') }}" class="btn btn-outline-primary mt-3"
-                        >Abrir conta ›</a
-                    >
-                </div>
-
-                <div class="about-section">
-                    <h2>Minha conta é segura?</h2>
-                    <p>
-                        Sim. Mesmo sendo um projeto de simulação, aplicamos boas práticas de
-                        segurança digital, incluindo criptografia de dados, autenticação e
-                        camadas de proteção simuladas. Saiba mais acessando a página de
-                        Segurança.
-                    </p>
-                    <a href="{{ url_for('home.seguranca') }}" class="btn btn-outline-primary mt-3"
-                        >Ver segurança ›</a
-                    >
-                </div>
-
-                <div class="about-section">
-                    <h2>Quais são as taxas e serviços da Conta IFSP?</h2>
-                    <p>
-                        Nossa conta é 100% gratuita para as operações essenciais do dia a
-                        dia. Confira em detalhes os serviços incluídos:
-                    </p>
-
-                    <table class="table table-striped table-hover mt-4">
-                        </table>
-                </div>
-
-                <div class="about-section">
-                    <h2>Como entrar em contato com o suporte?</h2>
-                    <p>
-                        Você pode enviar um e-mail para
-                        <a href="mailto:suporte@ifsp.fintech.br">suporte@ifsp.fintech.br</a>
-                        ou visitar a página <a href="{{ url_for('home.sobre_nos') }}">Sobre Nós</a> para mais
-                        informações sobre o projeto e a equipe de desenvolvimento.
-                    </p>
-                    <a href="{{ url_for('home.contato') }}" class="btn btn-outline-primary mt-3"
-                        >Falar com suporte ›</a
-                    >
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <div class="container py-5">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-                    <div class="col">
-                        </div>
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Navegação</h4>
-                            <ul>
-                                <li><a href="{{ url_for('home.index') }}">Home</a></li>
-                                <li><a href="{{ url_for('home.faq') }}">FAQ</a></li>
-                                <li><a href="{{ url_for('home.sobre_nos') }}">Sobre Nós</a></li>
-                                <li><a href="{{ url_for('home.seguranca') }}">Segurança</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="{{ url_for('home.termos_de_uso') }}">Termos de Uso</a></li>
-                                <li>
-                                    <a href="{{ url_for('home.politica_de_privacidade') }}"
-                                        >Política de Privacidade</a
-                                    >
-                                </li>
-                                <li><a href="{{ url_for('home.contato') }}">Contato</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Sua Conta</h4>
-                            <ul>
-                                <li>
-                                    <a href="{{ url_for('auth.login') }}" class="footer-btn-link"
-                                        >Acesse sua conta</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="{{ url_for('auth.abrir_conta') }}" class="footer-btn-link"
-                                        >Abra sua conta</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <hr class="footer-divider" />
-            </div>
-            <div class="container footer-bottom">
-                <p>
-                    © 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de
-                    São Paulo
-                </p>
-            </div>
-        </footer>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <script src="https://unpkg.com/imask"></script>
-        
-        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-    </body>
+	<head>
+		<title>IFSP - Perguntas Frequentes</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+		<link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon" />
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<a href="{{ url_for('home.index') }}">
+				<img
+					src="{{ url_for('static', filename='images/logo4.png') }}"
+					alt="logo"
+					height="50rem"
+					width="200rem"
+					/>
+				</a>
+				<nav id="links">
+					<a class="cabecalho" href="{{ url_for('home.faq') }}">FAQ</a>
+					<a class="cabecalho" href="{{ url_for('home.sobre_nos') }}">Sobre nós</a>
+					<a class="cabecalho" href="{{ url_for('home.seguranca') }}">Segurança</a>
+					<a class="cabecalho" id="login" href="{{ url_for('auth.login') }}">Acesse sua conta ›</a>
+					<a class="cabecalho" id="abrir_conta" href="{{ url_for('auth.abrir_conta') }}">Abra sua conta »</a>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<video width="100%" autoplay playsinline muted loop>
+				<source src="{{ url_for('static', filename='videos/faq-video.mp4') }}" type="video/mp4" />
+				Seu navegador não suporta o elemento de vídeo.
+			</video>
+			<div class="container py-5 about-page">
+				<h1 class="text-center mb-5">Perguntas Frequentes (FAQ)</h1>
+				<div class="about-section">
+					<h2>O que é a IFSP?</h2>
+					<p>
+						A <strong>IFSP</strong> é uma instituição financeira digital
+						simulada, desenvolvida como um projeto acadêmico. Nosso objetivo é
+						oferecer uma plataforma moderna e intuitiva para pagamentos,
+						transferências e gerenciamento financeiro pessoal, totalmente
+						digital e gratuita.
+					</p>
+					<a href="{{ url_for('home.sobre_nos') }}" class="btn btn-outline-primary mt-3">Saiba mais ›</a>
+				</div>
+				<div class="about-section">
+					<h2>Como abro uma conta?</h2>
+					<p>
+						Abertura de conta é simples e rápida! Clique em “Abra sua conta” no
+						menu principal e siga as instruções. Será necessário apenas um
+						documento de identidade e um e-mail válido.
+					</p>
+					<a href="{{ url_for('auth.abrir_conta') }}" class="btn btn-outline-primary mt-3">Abrir conta ›</a>
+				</div>
+				<div class="about-section">
+					<h2>Minha conta é segura?</h2>
+					<p>
+						Sim. Mesmo sendo um projeto de simulação, aplicamos boas práticas de
+						segurança digital, incluindo criptografia de dados, autenticação e
+						camadas de proteção simuladas. Saiba mais acessando a página de
+						Segurança.
+					</p>
+					<a href="{{ url_for('home.seguranca') }}" class="btn btn-outline-primary mt-3">Ver segurança ›</a>
+				</div>
+				<div class="about-section">
+					<h2>Quais são as taxas e serviços da Conta IFSP?</h2>
+					<p>
+						Nossa conta é 100% gratuita para as operações essenciais do dia a
+						dia. Confira em detalhes os serviços incluídos:
+					</p>
+					<table class="table table-striped table-hover mt-4">
+					</table>
+				</div>
+				<div class="about-section">
+					<h2>Como entrar em contato com o suporte?</h2>
+					<p>
+						Você pode enviar um e-mail para
+						<a href="mailto:suporte@ifsp.fintech.br">suporte@ifsp.fintech.br</a>
+						ou visitar a página <a href="{{ url_for('home.sobre_nos') }}">Sobre Nós</a> para mais
+						informações sobre o projeto e a equipe de desenvolvimento.
+					</p>
+					<a href="{{ url_for('home.contato') }}" class="btn btn-outline-primary mt-3">Falar com suporte ›</a>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<div class="container py-5">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+					<div class="col">
+						<div class="footer-column">
+							<h3 class="footer-logo-text">IFSP</h3>
+							<p class="footer-description">
+								Instituição Financeira de São Paulo
+							</p>
+							<h4>Siga-nos</h4>
+							<div class="footer-social-links">
+								<a href="#">LinkedIn</a>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Navegação</h4>
+							<ul>
+								<li><a href="{{ url_for('home.index') }}">Home</a></li>
+								<li><a href="{{ url_for('home.faq') }}">FAQ</a></li>
+								<li><a href="{{ url_for('home.sobre_nos') }}">Sobre Nós</a></li>
+								<li><a href="{{ url_for('home.seguranca') }}">Segurança</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Legal</h4>
+							<ul>
+								<li><a href="{{ url_for('home.termos_de_uso') }}">Termos de Uso</a></li>
+								<li><a href="{{ url_for('home.politica_de_privacidade') }}">Política de Privacidade</a></li>
+								<li><a href="{{ url_for('home.contato') }}">Contato</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Sua Conta</h4>
+							<ul>
+								<li><a href="{{ url_for('auth.login') }}" class="footer-btn-link">Acesse sua conta</a></li>
+								<li><a href="{{ url_for('auth.abrir_conta') }}" class="footer-btn-link">Abra sua conta</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<hr class="footer-divider" />
+			</div>
+			<div class="container footer-bottom">
+				<p>
+					© 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de
+					São Paulo
+				</p>
+			</div>
+		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+	</body>
 </html>

@@ -1,12 +1,23 @@
 from dataclasses import dataclass
 from datetime import datetime
+from decimal import Decimal
 
 @dataclass
 class Movimentacao:
+    """
+    Representação em Python da tabela 'movimentacoes'.
+    """
     id: int
-    id_conta: int
+    valor: Decimal
     data_hora: datetime
-    valor: float
-    tipo: str
-    id_pix: int
-    id_ted: int
+    tipo: str # 'PIX', 'TED', 'DEPOSITO', 'SAQUE'
+    id_conta: int
+    
+    # Campos opcionais (podem ser None dependendo do tipo)
+    chave_destino: str | None = None
+    num_conta_destino: str | None = None
+    agencia_destino: str | None = None
+    tipo_conta_destino: str | None = None
+    instituicao_destino: str | None = None
+    nome_destino: str | None = None
+    cpf_cnpj_destino: str | None = None

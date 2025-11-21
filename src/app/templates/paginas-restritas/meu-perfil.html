@@ -1,221 +1,218 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="h-100">
-    <head>
-        <title>IFSP - Meu Perfil</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-        <link rel="stylesheet" href="/src/app/static/css/style.css" />
-        
-        <link rel="stylesheet" href="/src/app/static/css/dashboard.css" />
-
-        <link rel="icon" href="/src/app/static/images/icon.png" type="image/x-icon" />
-    </head>
-
-    <body class="d-flex flex-column h-100">
-        
-        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">
-                <img
-                    src="/src/app/static/images/logo4.png"
-                    alt="logo"
-                    height="40px" 
-                    width="160px"
-                />
-            </a>
-            
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="navbar-nav w-100">
-                <div class="nav-item text-nowrap d-flex justify-content-end">
-                    <a class="nav-link px-3" href="#">Olá, [Nome do Cliente]</a>
-                    <a class="nav-link px-3" href="/logout">Sair <i class="bi bi-box-arrow-right"></i></a>
-                </div>
-            </div>
-        </header>
-
-        <div class="container-fluid flex-grow-1">
-            <div class="row h-100">
-                
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="position-sticky pt-3">
-                        
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                            <span><i class="bi bi-wallet2"></i> Conta</span>
-                        </h6>
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"> 
-                                    <i class="bi bi-cash-coin"></i> Saldo
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="bi bi-receipt"></i> Extrato
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                            <span><i class="bi bi-arrow-down-up"></i> Transações</span>
-                        </h6>
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="bi bi-send"></i> Realizar Transferência
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="bi bi-key-fill"></i> Gerenciar Chaves PIX
-                                </a>
-                            </li>
-                        </ul>
-
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                            <span><i class="bi bi-person-fill"></i> Perfil</span>
-                        </h6>
-                        <ul class="nav flex-column mb-2">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">
-                                    <i class="bi bi-person-vcard"></i> Meu Perfil
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="bi bi-pencil-square"></i> Atualizar Cadastro
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Meu Perfil e Cadastro</h1>
-                    </div>
-                    
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <form action="/perfil/atualizar" method="post" class="needs-validation" novalidate>
-                                
-                                <h4 class="mb-3">Dados Pessoais</h4>
-                                <div class="row g-3">
-                                    <div class="col-12">
-                                        <label for="nome" class="form-label">Nome Completo</label>
-                                        <input type="text" class="form-control" id="nome" value="[Nome do Cliente]" readonly disabled>
-                                        <small class="text-muted">O nome não pode ser alterado.</small>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="cpf" class="form-label">CPF</label>
-                                        <input type="text" class="form-control" id="cpf" value="[CPF do Cliente]" readonly disabled>
-                                        <small class="text-muted">O CPF não pode ser alterado.</small>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="nascimento" class="form-label">Data de Nascimento</label>
-                                        <input type="text" class="form-control" id="nascimento" value="[Nasc. do Cliente]" readonly disabled>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="email" class="form-label">E-mail</label>
-                                        <input type="email" class="form-control" id="email" value="[E-mail do Cliente]" required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="telefone" class="form-label">Telefone</label>
-                                        <input type="tel" class="form-control" id="telefone" value="[Telefone do Cliente]" required>
-                                    </div>
-                                </div>
-                                
-                                <hr class="my-4">
-
-                                <h4 class="mb-3">Endereço</h4>
-                                <div class="row g-3">
-                                    <div class="col-md-3">
-                                        <label for="cep" class="form-label">CEP</label>
-                                        <input type="text" class="form-control" id="cep" value="[CEP do Cliente]" required>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <label for="rua" class="form-label">Rua / Logradouro</label>
-                                        <input type="text" class="form-control" id="rua" value="[Rua do Cliente]" required>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="numero" class="form-label">Número</label>
-                                        <input type="text" class="form-control" id="numero" value="[Número do Cliente]" required>
-                                    </div>
-                                    
-                                    <div class="col-md-4">
-                                        <label for="complemento" class="form-label">Complemento</label>
-                                        <input type="text" class="form-control" id="complemento" value="[Complemento]">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label for="bairro" class="form-label">Bairro</label>
-                                        <input type="text" class="form-control" id="bairro" value="[Bairro do Cliente]" required>
-                                    </div>
-                                    
-                                    <div class="col-md-6">
-                                        <label for="cidade" class="form-label">Cidade</label>
-                                        <input type="text" class="form-control" id="cidade" value="[Cidade do Cliente]" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="estado" class="form-label">Estado</label>
-                                        <input type="text" class="form-control" id="estado" value="[Estado do Cliente]" required>
-                                    </div>
-                                </div>
-
-                                <hr class="my-4">
-
-                                <h4 class="mb-3">Dados Financeiros e Profissionais</h4>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="profissao" class="form-label">Profissão</label>
-                                        <select class="form-select" id="profissao" name="id_profissao">
-                                            <option value="1">Engenheiro(a) de Software</option>
-                                            <option value="2">Analista de Sistemas</option>
-                                            <option value="3" selected>Estudante</option> <option value="4">Professor(a)</option>
-                                            <option value="5">Médico(a)</option>
-                                            <option value="6">Advogado(a)</option>
-                                            <option value="99">Outro</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="salario" class="form-label">Renda Mensal (Salário)</label>
-                                        <input type="number" step="0.01" class="form-control" id="salario" value="[Salário do Cliente]" required>
-                                    </div>
-                                </div>
-                                
-                                <hr class="my-4">
-
-                                <button class="btn button-laranja w-100 py-2" type="submit">Salvar Alterações</button>
-
-                            </form>
-                        </div>
-                    </div>
-
-                    <footer class="pt-5 mt-5 text-muted border-top">
-                        © 2025 IFSP - Instituição Financeira de São Paulo
-                    </footer>
-                </main>
-            </div>
-        </div>
-
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <script src="https://unpkg.com/imask"></script>
-        
-        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-    </body>
+	<head>
+		<title>IFSP - Meu Perfil</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+		<link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon/">
+	</head>
+	<body class="d-flex flex-column h-100">
+		<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+			<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{ url_for('conta.area_do_cliente') }}">
+				<img src="{{ url_for('static', filename='images/logo4.png') }}"
+					alt="logo"
+					height="40px"
+					width="160px"
+				/>
+			</a>
+			<button
+				class="navbar-toggler position-absolute d-md-none collapsed"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#sidebarMenu"
+				aria-controls="sidebarMenu"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-nav w-100">
+				<div class="nav-item text-nowrap d-flex justify-content-end">
+					<span class="nav-link px-3">Olá, {{ cliente.nome }}</span>
+					<a class="nav-link px-3" href="{{ url_for('conta.logout') }}">Sair <i class="bi bi-box-arrow-right"></i></a>
+				</div>
+			</div>
+		</header>
+		<div class="container-fluid flex-grow-1">
+			<div class="row h-100">
+				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+					<div class="position-sticky pt-3">
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+							<span><i class="bi bi-wallet2"></i> Conta</span>
+						</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('conta.area_do_cliente') }}"><i class="bi bi-cash-coin"></i> Saldo</a></li>
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('conta.extrato') }}"><i class="bi bi-receipt"></i> Extrato</a>
+							</li>
+						</ul>
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+							<span><i class="bi bi-arrow-down-up"></i> Transações</span>
+						</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('conta.transferencia') }}"><i class="bi bi-send"></i> Realizar Transferência</a></li>
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('conta.chaves_pix') }}"><i class="bi bi-key-fill"></i> Gerenciar Chaves PIX</a>
+							</li>
+						</ul>
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+							<span><i class="bi bi-person-fill"></i> Perfil</span>
+						</h6>
+						<ul class="nav flex-column mb-2">
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('conta.meu_perfil') }}"><i class="bi bi-person-vcard"></i> Meu Perfil</a></li>
+						</ul>
+					</div>
+				</nav>
+				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+						<h1 class="h2">Meu Perfil e Cadastro</h1>
+					</div>
+					<div class="pt-3 pb-2 mb-3">
+						{% with messages = get_flashed_messages(with_categories=true) %}
+						{% if messages %}
+						{% for category, message in messages %}
+						<div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+							{{ message }}
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						</div>
+						{% endfor %}
+						{% endif %}
+						{% endwith %}
+					</div>
+					<div class="card shadow-sm">
+						<div class="card-body">
+							<form action="{{ url_for('conta.meu_perfil') }}" method="post" class="needs-validation" novalidate>
+								<h4 class="mb-3">Dados Pessoais</h4>
+								<div class="row g-3">
+									<div class="col-12">
+										<label for="nome" class="form-label">Nome Completo</label>
+										<input type="text" class="form-control" id="nome" value="{{ cliente.nome }}" readonly disabled>
+										<small class="text-muted">O nome não pode ser alterado.</small>
+									</div>
+									<div class="col-md-6">
+										<label for="cpf" class="form-label">CPF</label>
+										<input type="text" class="form-control" id="cpf" value="{{ cliente.cpf_formatado }}" readonly disabled>
+										<small class="text-muted">O CPF não pode ser alterado.</small>
+									</div>
+									<div class="col-md-6">
+										<label for="nascimento" class="form-label">Data de Nascimento</label>
+										<input type="text" class="form-control" id="nascimento" value="{{ cliente.data_nascimento.strftime('%d/%m/%Y') }}" readonly disabled>
+									</div>
+									<div class="col-md-6">
+										<label for="email" class="form-label">E-mail</label>
+										<input type="email" class="form-control" id="email" name="email" value="{{ cliente.email }}" required>
+									</div>
+									<div class="col-md-6">
+										<label for="telefone" class="form-label">Telefone</label>
+										<input type="tel" class="form-control" id="telefone" name="telefone" value="{{ telefone.numero if telefone else '' }}" required>
+									</div>
+								</div>
+								<hr class="my-4">
+								<h4 class="mb-3">Endereço</h4>
+								<div class="row g-3">
+									<div class="col-md-3">
+										<label for="cep" class="form-label">CEP</label>
+										<input type="text" class="form-control" id="cep" name="cep" value="{{ endereco.cep if endereco else '' }}" required>
+									</div>
+									<div class="col-md-9">
+										<label for="rua" class="form-label">Rua / Logradouro</label>
+										<input type="text" class="form-control" id="rua" name="rua" value="{{ endereco.rua if endereco else '' }}" required>
+									</div>
+									<div class="col-md-4">
+										<label for="numero" class="form-label">Número</label>
+										<input type="text" class="form-control" id="numero" name="numero" value="{{ endereco.numero if endereco else '' }}" required>
+									</div>
+									<div class="col-md-4">
+										<label for="complemento" class="form-label">Complemento</label>
+										<input type="text" class="form-control" id="complemento" name="complemento" value="{{ endereco.complemento if endereco and endereco.complemento else '' }}">
+									</div>
+									<div class="col-md-4">
+										<label for="bairro" class="form-label">Bairro</label>
+										<input type="text" class="form-control" id="bairro" name="bairro" value="{{ endereco.bairro if endereco else '' }}" required>
+									</div>
+									<div class="col-md-6">
+										<label for="cidade" class="form-label">Cidade</label>
+										<input type="text" class="form-control" id="cidade" name="cidade" value="{{ endereco.cidade if endereco else '' }}" required>
+									</div>
+									<div class="col-md-6">
+										<label for="estado" class="form-label">Estado</label>
+										<input type="text" class="form-control" id="estado" name="estado" value="{{ endereco.estado if endereco else '' }}" required>
+									</div>
+								</div>
+								<hr class="my-4">
+								<h4 class="mb-3">Dados Financeiros e Profissionais</h4>
+								<div class="row g-3">
+									<div class="col-md-6">
+										<label for="profissao" class="form-label">Profissão</label>
+										<select class="form-select" id="profissao" name="id_profissao">
+										{% for p in profissoes %}
+										<option value="{{ p.id }}" {% if p.id == cliente.id_profissao %}selected{% endif %}>
+										{{ p.nome }}
+										</option>
+										{% endfor %}
+										</select>
+									</div>
+									<div class="col-md-6">
+										<label for="salario" class="form-label">Renda Mensal (Salário)</label>
+										<input type="text" class="form-control" id="salario" name="salario" value="{{ cliente.salario | float | format_currency }}" required>
+									</div>
+								</div>
+								<hr class="my-4">
+								<button class="btn button-laranja w-100 py-2" type="submit">Salvar Alterações</button>
+							</form>
+						</div>
+					</div>
+					<div class="card shadow-sm mt-4 border-danger">
+						<div class="card-body d-flex justify-content-between align-items-center">
+							<p class="text-danger mb-0">
+								**Atenção:** A exclusão da conta é irreversível e apagará todos os seus dados.
+							</p>
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeletarConta">
+								Excluir Conta
+							</button>
+						</div>
+					</div>
+					<div class="modal fade" id="modalDeletarConta" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header bg-danger text-white">
+									<h5 class="modal-title" id="modalLabel">Confirmação de Exclusão Irreversível</h5>
+									<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<form action="{{ url_for('conta.deletar_conta') }}" method="post">
+									<div class="modal-body">
+										<p><strong>Você está prestes a deletar sua conta permanentemente.</strong> Todos os saldos, extratos e informações serão apagados e não poderão ser recuperados.</p>
+										<p>Para confirmar, digite sua senha de 6 dígitos:</p>
+										<div class="mb-3">
+											<label for="senhaConfirmacao" class="form-label">Sua Senha</label>
+											<input 
+												type="password" 
+												class="form-control" 
+												id="senhaConfirmacao" 
+												name="senha_confirmacao" 
+												required 
+												maxlength="6" 
+												inputmode="numeric"
+											>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+										<button type="submit" class="btn btn-danger">Sim, Excluir Minha Conta</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<footer class="pt-5 mt-5 text-muted border-top">
+						© 2025 IFSP - Instituição Financeira de São Paulo
+					</footer>
+				</main>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://unpkg.com/imask"></script>
+		<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+	</body>
 </html>

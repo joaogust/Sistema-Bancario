@@ -1,177 +1,140 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>IFSP - Sobre Nós</title>
-        <meta charset="UTF-8" />
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<title>IFSP - Sobre Nós</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+		<link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon" />
+	</head>
+	<body>
+		<header>
+			<div class="container d-flex align-items-center justify-content-between">
+				<a href="{{ url_for('home.index') }}" class="d-inline-flex align-items-center">
+					<img
+						src="{{ url_for('static', filename='images/logo4.png') }}"
+						alt="Logo IFSP"
+						height="50"
+						width="200"
+					/>
+				</a>
+				<nav id="links" class="d-flex align-items-center">
+					<a class="cabecalho" href="{{ url_for('home.faq') }}">FAQ</a>
+					<a class="cabecalho" href="{{ url_for('home.sobre_nos') }}">Sobre nós</a>
+					<a class="cabecalho" href="{{ url_for('home.seguranca') }}">Segurança</a>
+					<a class="cabecalho" id="login" href="{{ url_for('auth.login') }}">Acesse sua conta ›</a>
+					<a class="cabecalho" id="abrir_conta" href="{{ url_for('auth.abrir_conta') }}">Abra sua conta »</a>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<div class="container py-5 about-page">
+				<h1 class="text-center mb-5">Conheça a IFSP</h1>
+				<section class="about-section">
+					<h2>Nossa Missão</h2>
+					<p>
+						Nossa missão é explorar como a tecnologia pode simplificar e democratizar o acesso a serviços financeiros.
+						Como um projeto de fintech, nosso objetivo é desenhar e prototipar uma experiência bancária digital que seja
+						intuitiva, transparente, segura e 100% gratuita, colocando o controle financeiro nas mãos do usuário.
+					</p>
+				</section>
+				<section class="about-section">
+					<h2>O Projeto</h2>
+					<p>
+						A <strong>IFSP - Instituição Financeira de São Paulo</strong> é um projeto acadêmico desenvolvido por estudantes
+						do Instituto Federal de Educação, Ciência e Tecnologia de São Paulo (IFSP). Este sistema é uma simulação de uma fintech
+						de pagamentos, criada para aplicar conceitos de engenharia de software, design de banco de dados e desenvolvimento web.
+					</p>
+					<p>
+						Este não é um banco real e não movimenta valores monetários verídicos. Todos os dados são fictícios e utilizados apenas
+						para fins educacionais e de demonstração.
+					</p>
+				</section>
+				<section class="about-section">
+					<h2>A Equipe</h2>
+					<p>
+						Somos um grupo de estudantes do Bacharelado em Sistemas de Informação apaixonados por tecnologia e inovação.
+						Este projeto é o resultado do nosso esforço em aprender e construir soluções que podem, um dia, impactar
+						positivamente a vida das pessoas.
+					</p>
+				</section>
+				<section class="about-section">
+					<h2>Entre em Contato</h2>
+					<p>
+						Gostou do projeto ou tem alguma sugestão? Adoraríamos ouvir sua opinião!
+						Você pode enviar um e-mail para
+						<a href="mailto:suporte@ifsp.fintech.br">suporte@ifsp.fintech.br</a>.
+					</p>
+				</section>
+				<section class="about-section">
+					<h2>Nossos Documentos</h2>
+					<p>
+						Transparência é um pilar do nosso projeto. Conheça mais sobre as regras e diretrizes da nossa plataforma simulada:
+					</p>
+					<ul class="document-links list-unstyled">
+						<li><a href="{{ url_for('home.termos_de_uso') }}">Termos de Uso</a></li>
+						<li><a href="{{ url_for('home.politica_de_privacidade') }}">Política de Uso e Privacidade</a></li>
+						<li><a href="{{ url_for('home.contato') }}">Entre em Contato</a></li>
+					</ul>
+				</section>
+			</div>
+		</main>
+		<footer>
+			<div class="container py-5">
+				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+					<div class="col">
+						<div class="footer-column">
+							<h3 class="footer-logo-text">IFSP</h3>
+							<p class="footer-description">
+								Instituição Financeira de São Paulo
+							</p>
+							<h4>Siga-nos</h4>
+							<div class="footer-social-links">
+								<a href="#">LinkedIn</a>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Navegação</h4>
+							<ul>
+								<li><a href="{{ url_for('home.index') }}">Home</a></li>
+								<li><a href="{{ url_for('home.faq') }}">FAQ</a></li>
+								<li><a href="{{ url_for('home.sobre_nos') }}">Sobre Nós</a></li>
+								<li><a href="{{ url_for('home.seguranca') }}">Segurança</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Legal</h4>
+							<ul>
+								<li><a href="{{ url_for('home.termos_de_uso') }}">Termos de Uso</a></li>
+								<li><a href="{{ url_for('home.politica_de_privacidade') }}">Política de Privacidade</a></li>
+								<li><a href="{{ url_for('home.contato') }}">Contato</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col">
+						<div class="footer-column">
+							<h4>Sua Conta</h4>
+							<ul>
+								<li><a href="{{ url_for('auth.login') }}" class="footer-btn-link">Acesse sua conta</a></li>
+								<li><a href="{{ url_for('auth.abrir_conta') }}" class="footer-btn-link">Abra sua conta</a></li>
+							</ul>
+						</div>
+					</div>
 
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-        <link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon" />
-    </head>
-    <body>
-        <header>
-            <div class="container">
-                <a href="{{ url_for('home.index') }}">
-                    <img
-                        src="{{ url_for('static', filename='images/logo4.png') }}"
-                        alt="logo"
-                        height="50rem"
-                        width="200rem"
-                    />
-                </a>
-                <nav id="links">
-                    <a class="cabecalho" href="{{ url_for('home.faq') }}">FAQ</a>
-                    <a class="cabecalho" href="{{ url_for('home.sobre_nos') }}">Sobre nós</a>
-                    <a class="cabecalho" href="{{ url_for('home.seguranca') }}">Segurança</a>
-                    <a class="cabecalho" id="login" href="{{ url_for('auth.login') }}"
-                        >Acesse sua conta ›</a
-                    >
-                    <a class="cabecalho" id="abrir_conta" href="{{ url_for('auth.abrir_conta') }}"
-                        >Abra sua conta »</a
-                    >
-                </nav>
-            </div>
-        </header>
-
-        <main>
-            <div class="container py-5 about-page">
-                <h1 class="text-center mb-5">Conheça a IFSP</h1>
-
-                <div class="about-section">
-                    <h2>Nossa Missão</h2>
-                    <p>
-                        Nossa missão é explorar como a tecnologia pode simplificar e
-                        democratizar o acesso a serviços financeiros. Como um projeto de
-                        fintech, nosso objetivo é desenhar e prototipar uma experiência
-                        bancária digital que seja intuitiva, transparente, segura e 100%
-                        gratuita, colocando o controle financeiro nas mãos do usuário.
-                    </p>
-                </div>
-
-                <div class="about-section">
-                    <h2>O Projeto</h2>
-                    <p>
-                        A <strong>IFSP - Instituição Financeira de São Paulo</strong> é um
-                        projeto acadêmico desenvolvido por estudantes do Instituto Federal
-                        de Educação, Ciência e Tecnologia de São Paulo (IFSP). Este sistema
-                        é uma simulação de uma fintech de pagamentos, criada para aplicar
-                        conceitos de engenharia de software, design de banco de dados e
-                        desenvolvimento web.
-                    </p>
-                    <p>
-                        Este não é um banco real e não movimenta valores monetários
-                        verídicos. Todos os dados são fictícios e utilizados apenas para
-                        fins educacionais e de demonstração.
-                    </p>
-                </div>
-
-                <div class="about-section">
-                    <h2>A Equipe</h2>
-                    <p>
-                        Somos um grupo de estudantes Bacharelado em Sistemas de Informação
-                        apaixonados por tecnologia e inovação. Este projeto é o resultado do
-                        nosso esforço em aprender e construir soluções que podem, um dia,
-                        impactar positivamente a vida das pessoas.
-                    </p>
-                </div>
-
-                <div class="about-section">
-                    <h2>Entre em Contato</h2>
-                    <p>
-                        Gostou do projeto ou tem alguma sugestão? Adoraríamos ouvir sua
-                        opinião! Você pode enviar um e-mail para
-                        <a href="mailto:suporte@ifsp.fintech.br">suporte@ifsp.fintech.br</a
-                        >.
-                    </p>
-                </div>
-
-                <div class="about-section">
-                    <h2>Nossos Documentos</h2>
-                    <p>
-                        Transparência é um pilar do nosso projeto. Conheça mais sobre as
-                        regras e diretrizes da nossa plataforma simulada:
-                    </p>
-                    <ul class="document-links list-unstyled">
-                        <li><a href="{{ url_for('home.termos_de_uso') }}">Termos de Uso</a></li>
-                        <li>
-                            <a href="{{ url_for('home.politica_de_privacidade') }}"
-                                >Política de Uso e Privacidade</a
-                            >
-                        </li>
-                        <li><a href="{{ url_for('home.contato') }}">Entre em Contato</a></li>
-                    </ul>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <div class="container py-5">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-                    <div class="col">
-                         </div>
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Navegação</h4>
-                            <ul>
-                                <li><a href="{{ url_for('home.index') }}">Home</a></li>
-                                <li><a href="{{ url_for('home.faq') }}">FAQ</a></li>
-                                <li><a href="{{ url_for('home.sobre_nos') }}">Sobre Nós</a></li>
-                                <li><a href="{{ url_for('home.seguranca') }}">Segurança</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Legal</h4>
-                            <ul>
-                                <li><a href="{{ url_for('home.termos_de_uso') }}">Termos de Uso</a></li>
-                                <li>
-                                    <a href="{{ url_for('home.politica_de_privacidade') }}"
-                                        >Política de Privacidade</a
-                                    >
-                                </li>
-                                <li><a href="{{ url_for('home.contato') }}">Contato</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="footer-column">
-                            <h4>Sua Conta</h4>
-                            <ul>
-                                <li>
-                                    <a href="{{ url_for('auth.login') }}" class="footer-btn-link"
-                                        >Acesse sua conta</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="{{ url_for('auth.abrir_conta') }}" class="footer-btn-link"
-                                        >Abra sua conta</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <hr class="footer-divider" />
-            </div>
-            <div class="container footer-bottom">
-                <p>
-                    © 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de
-                    São Paulo
-                </p>
-            </div>
-        </footer>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <script src="https://unpkg.com/imask"></script>
-        
-        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-    </body>
+				</div>
+			</div>
+			<div class="container">
+				<hr class="footer-divider" />
+			</div>
+			<div class="container footer-bottom text-center">
+				<p>© 2025 IFSP - Instituto Federal de Educação, Ciência e Tecnologia de São Paulo</p>
+			</div>
+		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+	</body>
 </html>

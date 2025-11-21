@@ -1,150 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="h-100">
-    <head>
-        <title>IFSP - Sucesso!</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <link rel="stylesheet" href="/src/app/static/css/style.css" />
-        <link rel="stylesheet" href="/src/app/static/css/dashboard.css" />
-        <link rel="icon" href="/images/icon.png" type="image/x-icon" />
-    </head>
-
-    <body class="d-flex flex-column h-100">
-        
-        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">
-                <img
-                    src="/src/app/static/images/logo4.png"
-                    alt="logo"
-                    height="40px" 
-                    width="160px"
-                />
-            </a>
-            
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="navbar-nav w-100">
-                <div class="nav-item text-nowrap d-flex justify-content-end">
-                    <a class="nav-link px-3" href="#">Olá, [Nome do Cliente]</a>
-                    <a class="nav-link px-3" href="/logout">Sair <i class="bi bi-box-arrow-right"></i></a>
-                </div>
-            </div>
-        </header>
-
-        <div class="container-fluid flex-grow-1">
-            <div class="row h-100">
-                
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="position-sticky pt-3">
-                        
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                            <span><i class="bi bi-wallet2"></i> Conta</span>
-                        </h6>
-                        <ul class="nav flex-column">
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-cash-coin"></i> Saldo</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-receipt"></i> Extrato</a></li>
-                        </ul>
-
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                            <span><i class="bi bi-arrow-down-up"></i> Transações</span>
-                        </h6>
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">
-                                    <i class="bi bi-send"></i> Realizar Transferência
-                                </a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-key-fill"></i> Gerenciar Chaves PIX</a></li>
-                        </ul>
-
-                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                            <span><i class="bi bi-person-fill"></i> Perfil</span>
-                        </h6>
-                        <ul class="nav flex-column mb-2">
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-vcard"></i> Meu Perfil</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-pencil-square"></i> Atualizar Cadastro</a></li>
-                        </ul>
-                    </div>
-                </nav>
-
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    
-                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Comprovante</h1>
-                    </div>
-
-                    <div class="text-center p-4 my-4 rounded" style="background-color: #d1e7dd;"> <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
-                        <h3 class="mt-3 text-success">Transferência realizada com sucesso!</h3>
-                    </div>
-
-                    <div class="card shadow-sm mb-4">
-                        <div class="card-header">
-                            <h4 class="my-0 fw-normal">Detalhes da Transação</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span class="text-muted">Valor</span>
-                                    <strong>R$ [VALOR]</strong>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span class="text-muted">Tipo</span>
-                                    <strong>[PIX ou TED]</strong>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span class="text-muted">Destinatário</span>
-                                    <strong>[NOME DO DESTINATÁRIO]</strong>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span class="text-muted">CPF/CNPJ</span>
-                                    <span>[CPF/CNPJ DO DESTINATÁRIO]</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span class="text-muted">Instituição</span>
-                                    <span>[NOME DO BANCO]</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span class="text-muted">Agência / Conta</span>
-                                    <span>[AGÊNCIA] / [CONTA]</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span class="text-muted">Data e Hora</span>
-                                    <span>[DATA E HORA DA TRANSAÇÃO]</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span class="text-muted">ID da Transação</span>
-                                    <strong>[ID DA AUTENTICAÇÃO]</strong>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <a href="dashboard-saldo.html" class="btn button-laranja w-100 py-2">
-                            <i class="bi bi-arrow-left-circle"></i> Voltar para Minha Conta
-                        </a>
-                    </div>
-
-
-                    <footer class="pt-5 mt-5 text-muted border-top">
-                        © 2025 IFSP - Instituição Financeira de São Paulo
-                    </footer>
-                </main>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        
-        <script src="https://unpkg.com/imask"></script>
-        
-        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-    </body>
+	<head>
+		<title>IFSP - Sucesso!</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+		<link rel="icon" href="{{ url_for('static', filename='images/icon.png') }}" type="image/x-icon/">
+	</head>
+	<body class="d-flex flex-column h-100">
+		<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+			<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="{{ url_for('conta.area_do_cliente') }}">
+				<img src="{{ url_for('static', filename='images/logo4.png') }}"
+					alt="logo"
+					height="40px"
+					width="160px"
+				/>
+			</a>
+			<button
+				class="navbar-toggler position-absolute d-md-none collapsed"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#sidebarMenu"
+				aria-controls="sidebarMenu"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-nav w-100">
+				<div class="nav-item text-nowrap d-flex justify-content-end">
+					<span class="nav-link px-3">Olá, {{ cliente.nome }}</span>
+					<a class="nav-link px-3" href="{{ url_for('conta.logout') }}">Sair <i class="bi bi-box-arrow-right"></i></a>
+				</div>
+			</div>
+		</header>
+		<div class="container-fluid flex-grow-1">
+			<div class="row h-100">
+				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+					<div class="position-sticky pt-3">
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+							<span><i class="bi bi-wallet2"></i> Conta</span>
+						</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('conta.area_do_cliente') }}"><i class="bi bi-cash-coin"></i> Saldo</a></li>
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('conta.extrato') }}"><i class="bi bi-receipt"></i> Extrato</a>
+							</li>
+						</ul>
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+							<span><i class="bi bi-arrow-down-up"></i> Transações</span>
+						</h6>
+						<ul class="nav flex-column">
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('conta.transferencia') }}"><i class="bi bi-send"></i> Realizar Transferência</a></li>
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('conta.chaves_pix') }}"><i class="bi bi-key-fill"></i> Gerenciar Chaves PIX</a>
+							</li>
+						</ul>
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+							<span><i class="bi bi-person-fill"></i> Perfil</span>
+						</h6>
+						<ul class="nav flex-column mb-2">
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('conta.meu_perfil') }}"><i class="bi bi-person-vcard"></i> Meu Perfil</a></li>
+						</ul>
+					</div>
+				</nav>
+				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+					<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+						<h1 class="h2">Comprovante</h1>
+					</div>
+					<div class="success-box my-4 shadow-sm">
+						<div class="mb-3">
+							<i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+						</div>
+						<h2 class="text-success fw-bold">Transferência realizada com sucesso!</h2>
+						<p class="lead text-muted mt-2">
+							O valor já foi enviado para o destinatário e debitado do seu saldo.
+						</p>
+					</div>
+					<div class="row justify-content-center mt-5">
+						<div class="col-md-8">
+							<div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+								<a href="{{ url_for('conta.extrato') }}"class="btn button-laranja btn-lg px-5">
+									<i class="bi bi-receipt me-2"></i> 
+									Ver Comprovante no Extrato
+								</a>
+								<a href="{{ url_for('conta.area_do_cliente') }}" class="btn btn-outline-secondary btn-lg px-5">
+									i class="bi bi-house-door me-2"></i> 
+									Voltar ao Início
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="mt-5 text-center text-muted">
+						<small>Se precisar de ajuda, entre em contato com nosso suporte.</small>
+					</div>
+					<footer class="pt-5 mt-5 text-muted border-top">
+						© 2025 IFSP - Instituição Financeira de São Paulo
+					</footer>
+				</main>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+	</body>
 </html>
