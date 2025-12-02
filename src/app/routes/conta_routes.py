@@ -1,6 +1,5 @@
 from flask import render_template, Blueprint, request, redirect, url_for, session, flash, jsonify
 from decimal import Decimal
-# Importa OS DOIS serviços
 from src.app.data_classes.pix import PIX
 from src.app.data_classes.ted import TED
 from src.app.services import cliente_services, conta_services, endereco_services, telefone_services, profissao_services, chave_pix_services, movimentacao_services, pix_services, ted_services
@@ -328,11 +327,9 @@ def confirmar_transferencia():
             resultado = ted_services.realizar_ted(conta.id, obj_ted)
         
         elif dados['tipo_transacao'] == 'PIX':
-            # CORREÇÃO: Criar objeto PIX sem o campo descricao
             obj_pix = PIX(
                 valor=valor_decimal,
                 chave_destino=dados['chave_destino']
-                # REMOVIDO: descricao=dados.get('descricao', '')
             )
             resultado = pix_services.realizar_pix(conta.id, obj_pix)
 

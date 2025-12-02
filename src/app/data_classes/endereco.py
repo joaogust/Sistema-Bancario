@@ -4,7 +4,6 @@ from dataclasses import dataclass
 class Endereco:
     """
     Representação em Python da tabela 'enderecos' do banco de dados.
-    Os nomes dos atributos DEVEM ser iguais aos nomes das colunas.
     """
     id: int
     rua: str

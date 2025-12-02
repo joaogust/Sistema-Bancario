@@ -1,11 +1,10 @@
 from flask import render_template, Blueprint, request, flash, redirect, url_for, session
-# Importa os serviços
 from src.app.services import cliente_services, profissao_services
 
 # Define o Blueprint com o prefixo '/auth'
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-# --- ROTA DE LOGIN (AQUI ESTAVA O ERRO) ---
+# --- ROTA DE LOGIN ---
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -16,7 +15,6 @@ def login():
         # O resultado pode ser o Cliente (Objeto) OU uma mensagem de erro (String)
         resultado = cliente_services.validar_login(cpf, senha)
 
-        # CORREÇÃO CRÍTICA: Verifica se o resultado é um texto (erro)
         if isinstance(resultado, str):
             # É uma string, então é uma mensagem de erro. Mostra na tela.
             flash(resultado, 'danger')

@@ -10,10 +10,8 @@ class Movimentacao:
     id: int
     valor: Decimal
     data_hora: datetime
-    tipo: str # 'PIX', 'TED', 'DEPOSITO', 'SAQUE'
+    tipo: str
     id_conta: int
-    
-    # Campos opcionais (podem ser None dependendo do tipo)
     chave_destino: str | None = None
     num_conta_destino: str | None = None
     agencia_destino: str | None = None

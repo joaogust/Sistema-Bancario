@@ -2,7 +2,6 @@ from flask import Flask
 from config import Config
 from . import db
 
-# --- FUNÇÃO DO FILTRO ---
 def format_currency(value):
     """
     Formata um número decimal para o padrão monetário brasileiro.
@@ -25,11 +24,8 @@ def create_app():
 
     db.init_app(app)
     
-    # --- REGISTRO DO FILTRO (ESSENCIAL) ---
-    # Isso ensina ao HTML o que é 'format_currency'
     app.jinja_env.filters['format_currency'] = format_currency
     
-    # Registra os blueprints
     from .routes import home_routes
     app.register_blueprint(home_routes.bp)
 

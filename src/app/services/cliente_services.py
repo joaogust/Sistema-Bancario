@@ -1,10 +1,8 @@
 from src.app.data_classes.cliente import Cliente
 from src.app.db import get_db
-import psycopg2.extras # Para usar RealDictCursor
+import psycopg2.extras
 import random
 from werkzeug.security import generate_password_hash, check_password_hash
-
-# --- Funções para Login e Busca (Corrigidas) ---
 
 def get_cliente(id: int):
     """
@@ -42,7 +40,6 @@ def validar_login(cpf_sujo: str, senha_texto_plano: str):
     cursor = db.cursor(cursor_factory=psycopg2.extras.RealDictCursor) 
 
     try:
-        # Coluna 'id' da tabela 'clientes'
         query = "SELECT id, nome, cpf, senha_hash FROM clientes WHERE cpf = %s"
         cursor.execute(query, (cpf_limpo,))
         dados_cliente = cursor.fetchone()
@@ -54,8 +51,6 @@ def validar_login(cpf_sujo: str, senha_texto_plano: str):
         senha_hash_do_banco = dados_cliente['senha_hash']
         
         if check_password_hash(senha_hash_do_banco, senha_texto_plano):
-            # Senha correta!
-            # Assumindo que a classe Cliente tenha 'id' e 'nome'
             class ClienteLogin:
                  id = dados_cliente['id']
                  nome = dados_cliente['nome']
@@ -128,7 +123,7 @@ def _limpar_telefone(tel_str: str):
     return tel_str.replace('(', '').replace(')', '').replace(' ', '').replace('-', '')
 
 
-# --- A Função Principal de Criação (CORRIGIDA) ---
+# --- A Função Principal de Criação ---
 
 def criar_cliente_completo(dados_completos: dict):
     """
@@ -206,7 +201,7 @@ def criar_cliente_completo(dados_completos: dict):
             dados_completos.get('complemento')
         ))
         
-        # 6. INSERT na tabela CONTAS (Corrigido)
+        # 6. INSERT na tabela CONTAS
         agencia = '0001'
         numero_conta = f"{random.randint(100000, 999999)}-{random.randint(0, 9)}"
         
