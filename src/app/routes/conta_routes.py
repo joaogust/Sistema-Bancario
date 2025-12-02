@@ -372,6 +372,35 @@ def transferencia_concluida():
         print(f"Erro ao carregar página de conclusão: {e}", flush=True)
         flash('Erro ao carregar página.', 'danger')
         return redirect(url_for('conta.transferencia'))
+
+
+@bp.route('/sacar', methods=['POST'])
+def sacar():
+    user_id = session.get('user_id')
+    if not user_id: return redirect(url_for('auth.login'))
+    
+    try:
+        conta = conta_services.get_conta_by_cliente_id(user_id)
+        if not conta: raise ValueError("Conta não encontrada.")
+        
+        # O valor é pego do formulário
+        valor_bruto = request.form.get('valor_saque')
+        valor_decimal = converter_valor(valor_bruto)
+
+        # Chama a função do serviço que executa a stored procedure SQL
+        movimentacao_services.realizar_saque_db(conta.id, valor_decimal)
+
+        flash(f'Saque de R$ {valor_decimal} realizado com sucesso!', 'success')
+        return redirect(url_for('conta.area_do_cliente'))
+
+    except ValueError as ve:
+        # Erro de Saldo Insuficiente ou Valor Inválido
+        flash(f'Erro no saque: {ve}', 'danger')
+        return redirect(url_for('conta.area_do_cliente'))
+    except Exception as e:
+        print(f"Erro ao processar saque: {e}", flush=True)
+        flash('Erro ao processar o saque. Verifique o valor ou tente mais tarde.', 'danger')
+        return redirect(url_for('conta.area_do_cliente'))
     
 # ==========================
 # CHAVES PIX
