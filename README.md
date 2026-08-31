@@ -7,6 +7,7 @@
 
 O **Sistema Bancário** é uma aplicação web desenvolvida para demonstrar conceitos práticos de bancos de dados, integração backend–frontend e deploy em nuvem.  
 O sistema permite o gerenciamento de contas, clientes, transações e funcionalidades essenciais de uma solução bancária simples, focando em segurança e integridade dos dados.
+<img width="2020" height="1599" alt="image" src="https://github.com/user-attachments/assets/6dfada96-0ab2-4f8f-855b-5aaebfd8d309" />
 
 ---
 
